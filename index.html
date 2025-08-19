@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <!-- Meta tags Obrigatórias -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>LoreOwl</title>
+
+  <!-- CSS local (opcional, se existir) -->
+  <link rel="stylesheet" href="bootstrap.css">
+  
+
+  <!-- Bootstrap CSS via CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- Ícone -->
+  <link rel="icon" href="./img/coruja.1.png">
+</head>
+
+<body>
+
+
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="./img/coruja.1.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      LoreOwl
+    </a>
+
+    <!-- Botão do menu para mobile -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+      aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alternar navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links do menu -->
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Página principal<span class="sr-only">(página atual)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Mais
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="./login.html">Login</a>
+            <a class="dropdown-item" href="./cadastro.html">Cadastro</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#sobre">Sobre</a>
+          </div>
+          <div class="nav-item button">
+
+          </div>
+
+
+
+        </li>
+      </ul>
+      <!-- Formulário de busca -->
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Livros..." aria-label="Pesquisar">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
+    </div>
+  </nav>
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <!-- Menu lateral -->
+      <div class="col-sm-3">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+            href="#genero-todos" role="tab">Todos</a>
+          <a class="list-group-item list-group-item-action" id="list-ficcao-list" data-toggle="list"
+            href="#genero-ficcao" role="tab">Ficção</a>
+          <a class="list-group-item list-group-item-action" id="list-romance-list" data-toggle="list"
+            href="#genero-romance" role="tab">Romance</a>
+          <a class="list-group-item list-group-item-action" id="list-terror-list" data-toggle="list"
+            href="#genero-terror" role="tab">Terror</a>
+          <a class="list-group-item list-group-item-action" id="list-aventura-list" data-toggle="list"
+            href="#genero-aventura" role="tab">Aventura</a>
+          <a class="list-group-item list-group-item-action" id="list-drama-list" data-toggle="list" href="#genero-drama"
+            role="tab">Drama</a>
+          <a class="list-group-item list-group-item-action" id="list-religiao-list" data-toggle="list"
+            href="#genero-religiao" role="tab">Religião</a>
+          <a class="list-group-item list-group-item-action" id="list-fantasia-list" data-toggle="list"
+            href="#genero-fantasia" role="tab">Fantasia</a>
+          <a class="list-group-item list-group-item-action" id="list-manga-list" data-toggle="list" href="#genero-manga"
+            role="tab">Mangás</a>
+        </div>
+      </div>
+
+      <!-- Conteúdo -->
+      <div class="col-sm-9">
+        <div class="tab-content" id="nav-tabContent">
+
+          <!-- Todos -->
+          <div class="tab-pane fade show active" id="genero-todos" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Livro A</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Livro B</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Ficção 1</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Ficção 2</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Romance 1</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Terror 1</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Aventura</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Religião</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Mangá</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Ficção -->
+          <div class="tab-pane fade" id="genero-ficcao" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Ficção 1</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Ficção 2</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Romance -->
+          <div class="tab-pane fade" id="genero-romance" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Romance 1</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terror -->
+          <div class="tab-pane fade" id="genero-terror" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Terror 1</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Aventura -->
+          <div class="tab-pane fade" id="genero-aventura" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Aventura</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!--Religião-->
+          <div class="tab-pane fade" id="genero-religiao" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Religião</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!--Drama-->
+          <div class="tab-pane fade" id="genero-drama" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Drama</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="genero-fantasia" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Fantasia</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="genero-manga" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Mangá</h5>
+                    <p class="card-text">Descrição breve</p>
+                    <a href="#" class="btn btn-primary">Ver mais</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card" id="sobre">
+            <h5 class="card-header">Destaque</h5>
+            <div class="card-body">
+              <h5 class="card-title">Título especial</h5>
+              <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo
+                adicional.</p>
+              <a href="#" class="btn btn-primary">Visitar</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+    <!-- Scripts Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+</body>
+
+</html>
