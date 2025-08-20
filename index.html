@@ -112,12 +112,12 @@
           <div class="tab-pane fade show active" id="genero-todos" role="tabpanel">
             <div class="row">
               <div class="col-md-4 col-sm-6 mb-4">
-                <div class="card h-100">
-                  <img class="card-img-top" src="..." alt="Livro">
+                <div class="card h-100" onclick="openBookPage('LivroA', 'ryan','26.00','bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png')">
+                  <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Livro">
                   <div class="card-body">
                     <h5 class="card-title">Livro A</h5>
                     <p class="card-text">Descrição breve</p>
-                    <a href="#" class="btn btn-primary">Ver mais</a>
+                    <a href="livro.html" class="btn btn-primary" >Ver mais</a>
                   </div>
                 </div>
               </div>
@@ -341,20 +341,55 @@
               </div>
             </div>
           </div>
-          <div class="card" id="sobre">
-            <h5 class="card-header">Destaque</h5>
-            <div class="card-body">
-              <h5 class="card-title">Título especial</h5>
-              <p class="card-text">Com suporte a texto embaixo, que funciona como uma introdução a um conteúdo
-                adicional.</p>
-              <a href="#" class="btn btn-primary">Visitar</a>
+          <main>
+  <section id="sobre">
+    <div class="container my-5">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <div class="card shadow-lg border-0 rounded-4 text-white" style="background: linear-gradient(135deg,#6a11cb,#02060c);">
+            <div class="row g-0">
+              <!-- Texto -->
+              <div class="col-md-7 p-4 d-flex flex-column justify-content-center">
+                <div class="card-body">
+                  <h1 class="card-title mb-4">Sobre nós</h1>
+                  <p class="card-text">
+                    O <strong>LoreOwl</strong> nasceu em 2024 como um projeto estudantil criado por mim, 
+                    <strong>Ryan Chaves</strong>. No início era algo simples, mas já com o objetivo de unir 
+                    tecnologia, livros e conhecimento em um espaço organizado e acessível.
+                    <br><br>
+                    Em 2025, o site chega à sua <strong>versão mais avançada</strong>, construída com 
+                    <strong>Bootstrap</strong>, trazendo design moderno, mais responsividade e uma navegação 
+                    prática e intuitiva.
+                    <br><br>
+                    Hoje, o LoreOwl representa não só minha evolução como desenvolvedor, mas também a prova de 
+                    que um projeto estudantil pode crescer e se transformar em algo muito maior.
+                  </p>
+                  <a href="#" class="btn btn-primary mt-3">Saiba mais</a>
+                </div>
+              </div>
+              <!-- Imagem -->
+              <div class="col-md-5 d-flex align-items-center">
+                <img src="./img/coruja.1.png" class="img-fluid rounded-end" alt="Logo LoreOwl">
+              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
         </div>
 
       </div>
     </div>
+    <script>
+      function openBookPage(title, author, price, img) {
+                    const livro = { titulo: title, autor: author, preco: price, img: img };
+                    localStorage.setItem("livroSelecionado", JSON.stringify(livro));
+                    window.location.href = "livro.html";
+                }  
+    </script>
     <!-- Scripts Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -366,6 +401,17 @@
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
 </body>
-<footer>&copy;Todos os direitos reservados</footer>
+
+<!--footer-->
+<footer class="bd-footer text-muted">
+  <div class="container-fluid p-3 p-md-5">
+    <ul class="bd-footer-links">
+      <li><a href="https://github.com/Ryanchaves7002/LoreOwl-BOOT">GitHub</a></li>
+      <li><a href="https://twitter.com/getbootstrap">Instagram</a></li>
+    </ul>
+    <p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo" target="_blank" rel="noopener">@mdo</a> and <a href="https://twitter.com/fat" target="_blank" rel="noopener">@fat</a>. Maintained by the <a href="https://github.com/orgs/twbs/people">core team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
+    <p>Currently v{{ site.current_version }}. Code licensed <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank" rel="license noopener">MIT</a>, docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.</p>
+  </div>
+</footer>
 
 </html>
