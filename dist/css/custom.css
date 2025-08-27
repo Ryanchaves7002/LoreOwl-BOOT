@@ -1,0 +1,29 @@
+
+/* Quickfix: força o visual LoreOwl (teste) */
+
+.btn-secondary {
+  background-color: #4b0082 !important;
+  color: #fff !important;
+  border: none !important;
+}
+.card-lore { background-color: #1a1a25 !important; color: #e5e7eb !important; }.navbar-lore {
+  background: linear-gradient(90deg, #4b0082, #7c3aed) !important;
+  color: #fff !important;
+}
+.navbar-lore .navbar-brand,
+.navbar-lore .nav-link {
+  color: #fff !important;
+}
+.navbar-lore .navbar-toggler {
+  border-color: rgba(255,255,255,0.15);
+}
+.navbar-lore .navbar-toggler-icon {
+  filter: invert(1); /* garante o ícone visível se necessário */
+}
+
+/* Botões */
+.btn-brand {
+  background-color: #7c3aed !important;
+  color: #fff !important;
+  border: none !important;
+}

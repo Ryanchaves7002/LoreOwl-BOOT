@@ -1,16 +1,16 @@
-@import "custom";
-@import"node_modules/bootstrap/scss/bootstrap";
+// 1. Funções e variáveis do Bootstrap
 @import "../../node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/maps";
 @import "../../node_modules/bootstrap/scss/mixins";
 
-// Adicionando cor "brand" personalizada
-$theme-colors: map-merge($theme-colors, (
-  "brand": $primary
-));
+// 2. Suas customizações (sobrescreve as variáveis acima)
+@import "custom";
 
+// 3. Bootstrap completo
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// 4. Componentes adicionais (se precisar)
 @import "../../node_modules/bootstrap/scss/root";
 @import "../../node_modules/bootstrap/scss/reboot";
 @import "../../node_modules/bootstrap/scss/type";
@@ -20,4 +20,3 @@ $theme-colors: map-merge($theme-colors, (
 @import "../../node_modules/bootstrap/scss/utilities";
 @import "../../node_modules/bootstrap/scss/helpers";
 @import "../../node_modules/bootstrap/scss/utilities/api";
-@import "custom";
