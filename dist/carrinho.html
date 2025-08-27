@@ -11,13 +11,13 @@
     <link rel="icon" href="./img/coruja.1.png" />
 
     <title>Carrinho</title>
-
+<link rel="stylesheet" href="./css/custom.css">
     <!-- Bootstrap core CSS -->
     <link href="./css/bootstrap.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
     <link href="./css/form-validation.css" rel="stylesheet" />
-     <link rel="stylesheet" href="dist/css/main.scss">
+     <link rel="stylesheet" href="dist/css/main.css">
   </head>
   <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark" style="background: linear-gradient(90deg, #4b0082, #7c3aed);">
@@ -97,46 +97,7 @@
             <span class="text-muted">Seu carrinho</span>
             <span class="badge badge-secondary badge-pill">3</span>
           </h4>
-          <ul class="list-group mb-3">
-            <li
-              class="list-group-item d-flex justify-content-between lh-condensed"
-            >
-              <div>
-                <h6 class="my-0">Livro 1</h6>
-                <small class="text-muted">Breve descrição</small>
-              </div>
-              <span class="text-muted">R$12</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between lh-condensed"
-            >
-              <div>
-                <h6 class="my-0">Segundo produto</h6>
-                <small class="text-muted">Breve descrição</small>
-              </div>
-              <span class="text-muted">R$8</span>
-            </li>
-            <li
-              class="list-group-item d-flex justify-content-between lh-condensed"
-            >
-              <div>
-                <h6 class="my-0">Terceiro item</h6>
-                <small class="text-muted">Breve descrição</small>
-              </div>
-              <span class="text-muted">R$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between bg-light">
-              <div class="text-success">
-                <h6 class="my-0">Código promocional</h6>
-                <small>EXAMPLECODE</small>
-              </div>
-              <span class="text-success">-R$5</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Total (USD)</span>
-              <strong>R$20</strong>
-            </li>
-          </ul>
+          <ul class="list-group mb-3" id="lista-carrinho"></ul>
 
           <form class="card p-2">
             <div class="input-group">
@@ -203,7 +164,7 @@
                 </div>
               </div>
             </div>
-
+  
             <div class="mb-3">
               <label for="email"
                 >Email <span class="text-muted">(Opcional)</span></label
@@ -423,6 +384,82 @@
         </ul>
       </footer>
     </div>
+    <script>
+      // Seleciona todos os botões "Adicionar ao carrinho"
+// Seleciona todos os botões de adicionar ao carrinho
+const botoes = document.querySelectorAll('.add-to-cart');
+const lista = document.getElementById("lista-carrinho");
+
+// Função para salvar carrinho no localStorage
+function salvarCarrinho(carrinho) {
+    localStorage.setItem("carrinho", JSON.stringify(carrinho));
+}
+
+// Função para mostrar toast estilizado
+function mostrarToast(mensagem) {
+    const toast = document.createElement('div');
+    toast.className = 'toast-custom';
+    toast.innerText = mensagem;
+    document.body.appendChild(toast);
+
+    setTimeout(() => toast.classList.add('show'), 100);
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => document.body.removeChild(toast), 500);
+    }, 2500);
+}
+
+// Função para adicionar item ao carrinho
+function adicionarAoCarrinho(titulo, preco){
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    carrinho.push({titulo, preco});
+    salvarCarrinho(carrinho);
+    mostrarCarrinho();
+    mostrarToast(`${titulo} adicionado ao carrinho!`);
+}
+
+// Função para remover item do carrinho
+function removerDoCarrinho(index) {
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const removido = carrinho.splice(index, 1);
+    salvarCarrinho(carrinho);
+    mostrarCarrinho();
+    mostrarToast(`${removido[0].titulo} removido do carrinho!`);
+}
+
+// Função para renderizar carrinho na tela
+function mostrarCarrinho() {
+    let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    lista.innerHTML = '';
+    carrinho.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.classList.add("list-group-item","d-flex","justify-content-between","lh-condensed");
+        li.innerHTML = `
+            <div>
+                <h6 class="my-0">${item.titulo}</h6>
+            </div>
+            <span class="text-muted">${item.preco}</span>
+            <button class="btn btn-sm btn-danger ml-2" onclick="removerDoCarrinho(${index})">Remover</button>
+        `;
+        lista.appendChild(li);
+    });
+}
+
+// Inicializa carrinho ao carregar a página
+mostrarCarrinho();
+
+// Adiciona eventos aos botões de "Adicionar ao carrinho"
+botoes.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const item = btn.closest('.card-body'); // garante que pegue o card correto
+        const titulo = item.querySelector(".card-title").innerText;
+        const preco = item.querySelector(".preco").innerText;
+        adicionarAoCarrinho(titulo, preco);
+    });
+});
+
+
+    </script>
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
