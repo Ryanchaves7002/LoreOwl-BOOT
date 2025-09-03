@@ -100,7 +100,7 @@
             <div class="row">
               <div class="col-md-4 col-sm-6 mb-4">
                 <div class=" card card-lore" >
-                  <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Livro" onclick="openBookPage('LivroA', 'ryan','26.00','./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png')">
+                  <img class="card-img-top" id="bookImg"  src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Livro" onclick="openBookPage('LivroA','50.00' ,'./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png')">
                   <div class="card-body">
                     <h5 class="card-title">Livro A</h5>
                     <p class="preco">R$50</p>                
@@ -409,11 +409,10 @@
     
     <script src="./carrinho.js"></script>
     <script>
-      function openBookPage(title, author, price, img) {
-                    const livro = { titulo: title, autor: author, preco: price, img: img };
-                    localStorage.setItem("livroSelecionado", JSON.stringify(livro));
-                    window.location.href = "livro.html";
-                }  
+      function openBookPage(titulo, preco, img, author) {
+    window.location.href = `livro.html?title=${encodeURIComponent(titulo)}&price=${encodeURIComponent(preco)}&img=${encodeURIComponent(img)}&author=${encodeURIComponent(author)}`;
+}
+ 
     </script>
     <!-- Scripts Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

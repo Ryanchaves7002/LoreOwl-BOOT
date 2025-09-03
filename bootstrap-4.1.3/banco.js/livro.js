@@ -4,10 +4,18 @@ livros.forEach(livro => {
     livro.addEventListener("click", () => {
         const titulo = livro.querySelector(".titulo").textContent;
         const descricao = livro.querySelector(".descricao").textContent;
-        localStorage.setItem("livroSelecionado", JSON.stringify({ titulo, descricao }));
-        window.location.href = "/páginas/livro.html";
+        const img = livro.querySelector("img").getAttribute("src");
+
+        localStorage.setItem("livroSelecionado", JSON.stringify({ 
+            titulo, 
+            descricao, 
+            img 
+        }));
+
+        window.location.href = "./páginas/livro.html";
     });
 });
+
 
 if (window.location.pathname.includes("./páginas/livro.html")) {
     const livro = JSON.parse(localStorage.getItem("livroSelecionado"));

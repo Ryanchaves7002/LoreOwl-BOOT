@@ -13,270 +13,398 @@
     <title>Detalhes do produto</title>
   </head>
   <body class="bg-light">
-<nav class="navbar navbar-expand-lg navbar-lore navbar-dark" style="background: linear-gradient(90deg, #4b0082, #7c3aed);">
-    <a class="navbar-brand" href="#">
-      <img src="./img/coruja.1.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      LoreOwl
-    </a>
+    <nav class="navbar navbar-expand-lg navbar-lore navbar-dark" style="background: linear-gradient(90deg, #4b0082, #7c3aed);">
+      <a class="navbar-brand" href="#">
+        <img src="./img/coruja.1.png" width="30" height="30" class="d-inline-block align-top" alt="Logo LoreOwl">
+        LoreOwl
+      </a>
 
-    <!-- Botão do menu para mobile -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
-      aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alternar navegação">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!-- Links do menu -->
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="./index.html">Página principal<span class="sr-only">(página atual)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="./carrinho.html" style="color: white;">
-            Carrinho</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Mais
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#sobre">Sobre</a>
-          </div>
-          <div class="nav-item button">
+      <!-- Botão do menu para mobile -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-          </div>
-
-
-
-        </li>
-      </ul>
-      <!-- Formulário de busca -->
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Livros..." aria-label="Pesquisar">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-      </form>
-    </div>
-  </nav>
-  <div class="container">
-  <div class="row">
-    <!-- Coluna da imagem -->
-    <div class="col-md-6 mb-4">
-      <div class="bg-white p-3 rounded shadow-sm">
-        <img id="bookImg" src="" alt="Capa do livro" width="300" class="img-fluid">
+      <!-- Links do menu -->
+      <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./index.html">Página principal<span class="sr-only">(página atual)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./carrinho.html" style="color: white;">
+              Carrinho</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Mais
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#sobre">Sobre</a>
+            </div>
+          </li>
+        </ul>
+        <!-- Formulário de busca -->
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Buscar Livros..." aria-label="Pesquisar">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+        </form>
       </div>
-      
-    </div>
+    </nav>
 
-    <!-- Coluna das infos -->
-    <div class="col-md-6 ">
-      <div class="bg-white p-3 rounded shadow-sm" > 
-        <div class=" d-flex justify-content-between align-items-center mb-2 ">
-          <span class="text-muted-small">Novo | +100 vendidos</span>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Coluna da imagem -->
+         
+        <div class="col-md-8 mb-4 ">
+          
+          <div class="row bg-white p-3 rounded shadow-sm mt-4">
+        
+
+           
+          <div class="col-7  ">
+           <div class="row">
+
+             <div class="col-2">
+               <img src="./img/coruja.1.png" alt="..." width="44" height="44"  class="rounded  border border-dark-solid-8px">
+               <img src="./img/coruja.1.png" alt="..." width="44" height="44"  class="rounded  border border-dark-solid-8px">
+               <img src="./img/coruja.1.png" alt="..." width="44" height="44"  class="rounded  border border-dark-solid-8px">
+              </div>
+
+            <div class="col-10"> 
+              <figure class="figure">
+                <img src="./img/coruja.1.png" class="figure-img img-fluid rounded" alt="Imagem de um quadrado genérico com bordas arredondadas, em uma figure.">
+              </figure>
+            </div>
+            
+          </div>
+            
+          </div>
+
+          <div class="col-5">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="small text-muted">Novo | +100 vendidos</span>
+              <div>
+                <i class="fas fa-share-alt mr-2"></i>
+                <i class="far fa-heart"></i>
+              </div>
+            </div>
+           <h2 id="bookTitle" class="h4"></h2>
+            <h3 id="bookAuthor"></h3>
+            <div class="d-flex align-items-center mb-2">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="small text-muted ml-2" id="bookRating">(1868 avaliações)</span>
+              
+            </div>
+            <h3 class="h5 font-weight-bold text-danger" id="bookPrice"></h3>
+            <div class="d-flex align-items-center">
+                <span class="original-price mr-2" id="bookOriginalPrice">R$ 30,00</span>
+                <span class="discount-badge" id="bookDiscount">30% OFF</span>
+              </div>
+                <div class="mb-3">
+              
+              
+              <p class="small text-muted mb-0" id="bookInstallments">ou em 12x de R$ 2,17 sem juros</p>
+            </div>
+          </div>
+
+    
+         
+        
+        </div>
+          
+        </div>
+
+        <!-- Coluna das infos -->
+        <div class="col-md-4 mb-4">
+          <div class="bg-white p-3 rounded shadow-sm">
+            
+            
+
+            
+          
+            <div class="mb-3">
+              <p class="mb-1">
+                <i class="fas fa-truck text-success mr-1"></i>
+                <span class="shipping-badge">Frete grátis</span>
+                <span class="text-success font-weight-bold">Amanhã</span>
+              </p>
+              <p class="small text-muted mb-0">Comprando dentro das próximas 12h e 53min</p>
+
+              <p class="mt-2 mb-0">
+                <i class="fas fa-store text-info mr-1"></i>
+                <span class="text-info">Retire grátis amanhã em uma de nossas livrarias</span>
+              </p>
+            </div>
+            <div class="buy-box mb-3">
+              <p class="mb-1">Quantidade: <span class="stock-badge"> 1 unidade</span></p>
+              <p class="mb-2 small text-muted">Mais de 50 disponíveis</p>
+              <div class="d-flex">
+                <button class="btn btn-primary btn-block mr-2" id="buyButton">Comprar agora</button>
+                <button class="btn btn-outline-secondary" id="cartBtn" aria-label="Adicionar ao carrinho">
+                  <i class="fas fa-shopping-cart">Adicionar</i>
+                  <span class="text"></span>
+                </button>
+              </div>
+            </div>
+            <div class="free-return small">
+              <i class="fas fa-undo-alt"></i> Devolução grátis. Você tem 30 dias a partir da data de recebimento.
+            </div>
+          </div>
+
+          <div class="bg-white p-3 rounded shadow-sm mt-3">
+            <h5 class="mb-2">Informações do vendedor</h5>
+            <div class="seller-badge">
+              <p class="mb-1"><strong>LoreOwl Livraria</strong></p>
+              <p class="mb-1 small"><i class="fas fa-map-marker-alt text-muted mr-1"></i> São Paulo, Brasil</p>
+              <p class="mb-0 small text-success"><i class="fas fa-check-circle mr-1"></i> MercadoLíder Platinum</p>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-12">
+              <div class="bg-white p-3 rounded shadow-sm">
+                <h5>O que você precisa saber deste produto</h5>
+                <div class="row mt-3">
+                  <div class="col-md-6">
+                    <div class="product-feature">
+                      <p class="mb-0">
+                        <i class="fas fa-book-open mr-2 text-primary"></i><strong>Gênero:</strong>
+                        <span id="bookGenre">Ficção</span>
+                      </p>
+                    </div>
+                    <div class="product-feature">
+                      <p class="mb-0"><i class="fas fa-language mr-2 text-primary"></i><strong>Idioma:</strong> Português</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="product-feature">
+                      <p class="mb-0"><i class="fas fa-calendar mr-2 text-primary"></i><strong>Ano de publicação:</strong> <span id="bookYear">2022</span></p>
+                    </div>
+                    <div class="product-feature">
+                      <p class="mb-0"><i class="fas fa-file-alt mr-2 text-primary"></i><strong>Páginas:</strong> <span id="bookPages">350</span></p>
+                    </div>
+                    <div class="product-feature">
+                      <p class="mb-0"><i class="fas fa-industry mr-2 text-primary"></i><strong>Editora:</strong> <span id="bookPublisher">Editora Lore</span></p>
+                    </div>
+                    <div class="product-feature">
+                      <p class="mb-0"><i class="fas fa-weight mr-2 text-primary"></i> <strong>Peso:</strong> 450g</p>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                <h5>Descrição</h5>
+                <p id="bookDescription" class="text-justify"></p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
+
+      <!-- Modal -->
+      <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel" aria-hidden="true">
+      </div>
     </div>
-  </div>
-</div>
 
 
    
      <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const paymentSelect = document.getElementById('payment');
-            const options = {
-                "credit-card": document.getElementById('credit-card-info'),
-                "boleto": document.getElementById('boleto-info'),
-                "pix": document.getElementById('pix-info')
+document.addEventListener("DOMContentLoaded", function () {
+    const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
+    const paginaAtual = window.location.pathname;
+    const isGestao = paginaAtual.includes("index.html");
+
+    // Esconde botões se for página de gestão
+    if (isGestao) {
+        document.getElementById("buyButton")?.style.setProperty("display", "none");
+        document.getElementById("readButton")?.style.setProperty("display", "none");
+    }
+
+    // Recupera livro selecionado
+    const livro = JSON.parse(localStorage.getItem("livroSelecionado"));
+    const params = new URLSearchParams(window.location.search);
+
+    if (livro) {
+        displayBookInfo(livro);
+    } else if (params.has('title')) {
+        const bookFromUrl = {
+            titulo: params.get('title'),
+            author: params.get('autor') || 'Autor desconhecido',
+            preco: params.get('price') || '0.00',
+            img: params.get('img') || '',
+            descricao: params.get('description') || 'Descrição não disponível'
+        };
+        displayBookInfo(bookFromUrl);
+    } else {
+        window.location.href = "livro.html";
+    }
+
+    setupEventListeners(isGestao);
+});
+
+function displayBookInfo(book) {
+    document.getElementById('bookTitle').innerText = book.titulo;
+    document.getElementById('bookAuthor').innerText = "Autor: " + book.autor;
+    document.getElementById('bookPrice').innerText = "R$ " + book.preco;
+
+    if (book.img) {
+        const imgEl = document.getElementById('bookImg');
+        imgEl.src = book.img;
+        imgEl.alt = `Capa do livro ${book.titulo}`;
+    }
+
+    if (book.descricao) {
+        document.getElementById('bookDescription').innerText = book.descricao;
+    }
+}
+
+function setupEventListeners(isGestao) {
+    const buyButton = document.getElementById('buyButton');
+    const readButton = document.getElementById('readButton');
+    const cartBtn = document.getElementById("cartBtn");
+    const cartText = document.querySelector("#cartBtn .text");
+    const buyModal = document.getElementById('buyModal');
+    const closeModal = document.getElementById('closeModal');
+    const purchaseForm = document.getElementById('purchaseForm');
+
+    // Caixa de mensagem de sucesso
+    const successMessage = document.createElement("div");
+    successMessage.id = "successMessage";
+    successMessage.style.display = "none";
+    successMessage.style.position = "fixed";
+    successMessage.style.top = "100px";
+    successMessage.style.left = "50%";
+    successMessage.style.transform = "translateX(-50%)";
+    successMessage.style.backgroundColor = "#4CAF50";
+    successMessage.style.color = "white";
+    successMessage.style.padding = "15px";
+    successMessage.style.borderRadius = "8px";
+    successMessage.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 0.2)";
+    successMessage.style.zIndex = "1000";
+    document.body.appendChild(successMessage);
+
+    // Botão comprar
+    if (buyButton && !isGestao) {
+        buyButton.addEventListener('click', () => {
+            buyModal.style.display = 'block';
+        });
+    }
+
+    // Botão ler
+    if (readButton && !isGestao) {
+        readButton.addEventListener('click', () => {
+            const livro = JSON.parse(localStorage.getItem("livroSelecionado")) || {
+                titulo: document.getElementById('bookTitle').innerText,
+                author: document.getElementById('bookAuthor').innerText.replace("Autor: ", "")
+            };
+            window.location.href = `leitura.html?title=${encodeURIComponent(livro.titulo)}&author=${encodeURIComponent(livro.autor)}`;
+        });
+    }
+
+    // Botão carrinho
+    if (cartBtn && !isGestao) {
+        cartBtn.addEventListener("click", function () {
+            if (cartBtn.classList.contains("success")) return;
+
+            const livro = {
+                titulo: document.getElementById('bookTitle').innerText,
+                author: document.getElementById('bookAuthor').innerText.replace("Autor: ", ""),
+                preco: document.getElementById('bookPrice').innerText.replace("R$ ", ""),
+                img: document.getElementById('bookImg').src
             };
 
-            if (paymentSelect) {
-                paymentSelect.addEventListener('change', function () {
-                    for (let opt in options) {
-                        options[opt].style.display = 'none';
-                    }
-                    const selected = paymentSelect.value;
-                    if (options[selected]) {
-                        options[selected].style.display = 'block';
-                    }
-                });
+            const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+            carrinho.push(livro);
+            localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+            cartBtn.classList.add("success");
+            if (cartText) {
+                cartText.innerText = "Adicionado!";
+                cartText.classList.add("success");
             }
 
-            const usuarioLogado = JSON.parse(localStorage.getItem("usuarioLogado"));
-
-            const paginaAtual = window.location.pathname;
-            const isGestao = paginaAtual.includes("index.html");
-
-            if (isGestao) {
-                const buyButton = document.getElementById("buyButton");
-                const readButton = document.getElementById("readButton");
-                if (buyButton) buyButton.style.display = "none";
-                if (readButton) readButton.style.display = "none";
-            }
-
-            const livro = JSON.parse(localStorage.getItem("livroSelecionado"));
-            const params = new URLSearchParams(window.location.search);
-
-            if (livro) {
-                displayBookInfo(livro);
-            } else if (params.has('title')) {
-                const bookFromUrl = {
-                    titulo: params.get('title'),
-                    autor: params.get('author') || 'Autor desconhecido',
-                    preco: params.get('price') || '0.00',
-                    img: params.get('img') || '',
-                    descricao: params.get('description') || 'Descrição não disponível'
-                };
-                displayBookInfo(bookFromUrl);
-            } else {
-                window.location.href = "livro.html";
-            }
-
-            setupEventListeners(isGestao);
+            setTimeout(() => {
+                cartBtn.classList.remove("success");
+                if (cartText) {
+                    cartText.classList.remove("success");
+                    cartText.innerText = "";
+                }
+            }, 2000);
         });
+    }
 
-        function displayBookInfo(book) {
-            document.getElementById('bookTitle').innerText = book.titulo;
-            document.getElementById('bookAuthor').innerText = "Autor: " + book.autor;
-            document.getElementById('bookPrice').innerText = "Preço: R$ " + book.preco;
+    // Modal fechar
+    closeModal?.addEventListener('click', () => {
+        buyModal.style.display = 'none';
+    });
 
-            if (book.img) {
-                document.getElementById('bookImg').src = book.img;
-                document.getElementById('bookImg').alt = `Capa do livro ${book.titulo}`;
-            }
+    window.addEventListener('click', (event) => {
+        if (event.target === buyModal) {
+            buyModal.style.display = 'none';
+        }
+    });
+
+    // Formulário de compra
+    purchaseForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const titulo = document.getElementById('bookTitle').innerText;
+        const author = document.getElementById('bookAuthor').innerText.replace("Autor: ", "");
+        const preco = document.getElementById('bookPrice').innerText.replace("R$ ", "");
+
+        const metodoPagamento = document.getElementById('payment')?.value || "Não informado";
+
+        let dadosExtras = "";
+        if (metodoPagamento === "credit-card") {
+            const numero = document.getElementById('cardNumber')?.value;
+            const validade = document.getElementById('cardexpiry')?.value;
+            dadosExtras = `
+              <span><b>Número do Cartão:</b> ****${numero?.slice(-4)}</span><br>
+              <span><b>Validade:</b> ${validade}</span><br>
+            `;
+        } else if (metodoPagamento === "boleto") {
+            const cpf = document.getElementById('cpfBoleto')?.value;
+            dadosExtras = `<span><b>CPF:</b> ${cpf}</span><br>`;
+        } else if (metodoPagamento === "pix") {
+            const chavePix = document.getElementById('chavePix')?.value;
+            dadosExtras = `<span><b>Chave Pix:</b> ${chavePix}</span><br>`;
         }
 
-        function setupEventListeners(isGestao) {
-            const buyButton = document.getElementById('buyButton');
-            const readButton = document.getElementById('readButton');
-            const cartBtn = document.getElementById("cartBtn");
-            const cartText = document.querySelector("#cartBtn .text");
-            const buyModal = document.getElementById('buyModal');
-            const closeModal = document.getElementById('closeModal');
-            const purchaseForm = document.getElementById('purchaseForm');
-
-            // Mensagem de sucesso
-            const successMessage = document.createElement("div");
-            successMessage.id = "successMessage";
-            successMessage.style.display = "none";
-            successMessage.style.position = "fixed";
-            successMessage.style.top = "100px";
-            successMessage.style.left = "50%";
-            successMessage.style.transform = "translateX(-50%)";
-            successMessage.style.backgroundColor = "#4CAF50";
-            successMessage.style.color = "white";
-            successMessage.style.padding = "15px";
-            successMessage.style.borderRadius = "8px";
-            successMessage.style.boxShadow = "0px 0px 10px rgba(0, 0, 0, 0.2)";
-            successMessage.style.zIndex = "1000";
-            document.body.appendChild(successMessage);
-
-            if (buyButton && !isGestao) {
-                buyButton.addEventListener('click', () => {
-                    buyModal.style.display = 'block';
-                });
-            }
-
-            if (readButton && !isGestao) {
-                readButton.addEventListener('click', () => {
-                    const livro = JSON.parse(localStorage.getItem("livroSelecionado")) || {
-                        titulo: document.getElementById('bookTitle').innerText,
-                        autor: document.getElementById('bookAuthor').innerText.replace("Autor: ", "")
-                    };
-                    window.location.href = `leitura.html?title=${encodeURIComponent(livro.titulo)}&author=${encodeURIComponent(livro.autor)}`;
-                });
-            }
-
-            if (cartBtn && !isGestao) {
-                cartBtn.addEventListener("click", function () {
-                    if (cartBtn.classList.contains("success")) return;
-
-                    const livro = {
-                        titulo: document.getElementById('bookTitle').innerText,
-                        autor: document.getElementById('bookAuthor').innerText.replace("Autor: ", ""),
-                        preco: document.getElementById('bookPrice').innerText.replace("Preço: R$ ", ""),
-                        img: document.getElementById('bookImg').src
-                    };
-
-                    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-                    carrinho.push(livro);
-                    localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
-                    cartBtn.classList.add("success");
-                    cartText.classList.add("success");
-                    cartText.classList.remove("text");
-                    cartText.innerText = "Adicionado!";
-
-                    setTimeout(() => {
-                        cartBtn.classList.remove("success");
-                        cartText.classList.remove("success");
-                        cartText.innerText = "";
-                    }, 2000);
-                });
-            }
-
-            closeModal?.addEventListener('click', () => {
-                buyModal.style.display = 'none';
-            });
-
-            window.addEventListener('click', (event) => {
-                if (event.target === buyModal) {
-                    buyModal.style.display = 'none';
-                }
-            });
-
-            purchaseForm?.addEventListener('submit', (event) => {
-                event.preventDefault();
-
-                const titulo = document.getElementById('bookTitle').innerText;
-                const autor = document.getElementById('bookAuthor').innerText.replace("Autor: ", "");
-                const preco = document.getElementById('bookPrice').innerText.replace("Preço: R$ ", "");
-
-                const metodoPagamento = document.getElementById('payment').value || "Não foi informado o metodo de pagamento!";
-
-                let dadosExtras = "";
-                if (metodoPagamento === "credit-card") {
-                    const numero = document.getElementById('cardNumber')?.value;
-                    const validade = document.getElementById('cardexpiry')?.value;
-                    dadosExtras = `
-                    <span><b>Número do Cartão:</b> ****${numero?.slice(-4)}</span><br>
-                    <span><b>Validade:</b> ${validade}</span><br>
-                    `;
-                } else if (metodoPagamento === "boleto") {
-                    const cpf = document.getElementById('cpfBoleto')?.value;
-                    dadosExtras = `
-                    <span><b>CPF:</b> ${cpf}</span><br>`;
-                } else if (metodoPagamento === "pix") {
-                    const chavePix = document.getElementById('chavePix')?.value;
-                    dadosExtras = ` <span><b>Chave Pix:</b> ${chavePix}</span><br>`;
-                }
-                const msg = `
-            <strong>Compra realizada com sucesso!</strong><br>
-            <span><b>Título:</b> ${titulo}</span><br>
-            <span><b>Autor:</b> ${autor}</span><br>
-            <span><b>Preço:</b> R$ ${preco}</span>
-            <span><b>Método de Pagamento:</b> ${metodoPagamento}</span><br>
-            ${dadosExtras}
+        const msg = `
+          <strong>Compra realizada com sucesso!</strong><br>
+          <span><b>Título:</b> ${titulo}</span><br>
+          <span><b>Autor:</b> ${autor}</span><br>
+          <span><b>Preço:</b> R$ ${preco}</span><br>
+          <span><b>Método de Pagamento:</b> ${metodoPagamento}</span><br>
+          ${dadosExtras}
         `;
-                const successBox = document.getElementById("successMessage");
-                successBox.innerHTML = msg;
-                successBox.style.display = "block";
 
-                setTimeout(() => {
-                    successBox.style.display = "none";
-                }, 5000);
+        const successBox = document.getElementById("successMessage");
+        successBox.innerHTML = msg;
+        successBox.style.display = "block";
 
-                buyModal.style.display = 'none';
-            });
-        }
+        setTimeout(() => {
+            successBox.style.display = "none";
+        }, 5000);
 
-        // Remove o livro selecionado ao sair da página
-        window.addEventListener("beforeunload", () => {
-            localStorage.removeItem("livroSelecionado");
-        });
-     </script>
+        buyModal.style.display = 'none';
+    });
+}
+
+// Remove o livro selecionado ao sair da página
+window.addEventListener("beforeunload", () => {
+    localStorage.removeItem("livroSelecionado");
+});
+</script>
+
     <script src="./banco.js/livro.js"></script>
     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
