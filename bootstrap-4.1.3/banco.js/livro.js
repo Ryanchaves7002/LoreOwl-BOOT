@@ -5,11 +5,11 @@ livros.forEach(livro => {
         const titulo = livro.querySelector(".titulo").textContent;
         const descricao = livro.querySelector(".descricao").textContent;
         localStorage.setItem("livroSelecionado", JSON.stringify({ titulo, descricao }));
-        window.location.href = "livro.html";
+        window.location.href = "/páginas/livro.html";
     });
 });
 
-if (window.location.pathname.includes("livro.html")) {
+if (window.location.pathname.includes("./páginas/livro.html")) {
     const livro = JSON.parse(localStorage.getItem("livroSelecionado"));
     if (livro) {
         document.querySelector(".titulo-livro").textContent = livro.titulo;
