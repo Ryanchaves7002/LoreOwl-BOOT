@@ -155,4 +155,26 @@
   #bookDescription {
     margin: 10px 0;
   }
+   .product-main {
+    display: flex;
+    flex-direction: row; /* nome ao lado da imagem */
+  }
 }
+.product-main .col-12.col-md-7,
+.product-main .col-12.col-md-5 {
+  margin-bottom: 1rem;
+}
+
+/* No custom.css */
+@media (max-width: 767.98px) {
+   .col-12.col-md-7.d-flex.flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  .product-header {
+    order: -1; /* sobe para cima da imagem */
+    margin-bottom: 1rem;
+  }
+}
+
+
