@@ -1,43 +1,23 @@
+// Função que abre a página do livro usando URL
+function openBookPage(titulo, preco, author, img) {
+    const url = `./páginas/livro.html?title=${encodeURIComponent(titulo)}&price=${encodeURIComponent(preco)}&auzthor=${encodeURIComponent(author)}&img=${encodeURIComponent(img)}`;
+    window.location.href = url;
+}
 
+// Se você quiser, ainda pode usar localStorage como fallback:
 const livros = document.querySelectorAll(".livro");
 livros.forEach(livro => {
     livro.addEventListener("click", () => {
         const titulo = livro.querySelector(".titulo").textContent;
         const descricao = livro.querySelector(".descricao").textContent;
+        const author = livro.querySelector(".author")?.textContent || "Autor desconhecido";
+        const preco = livro.querySelector(".preco")?.textContent || "0.00";
         const img = livro.querySelector("img").getAttribute("src");
 
-        localStorage.setItem("livroSelecionado", JSON.stringify({ 
-            titulo, 
-            descricao, 
-            img 
-        }));
+        // salva no localStorage (opcional, caso queira usar)
+        localStorage.setItem("livroSelecionado", JSON.stringify({ titulo, descricao, author, preco, img }));
 
-        window.location.href = "./páginas/livro.html";
+        // redireciona usando a função
+        openBookPage(titulo, preco, author, img);
     });
-});
-
-
-if (window.location.pathname.includes("./páginas/livro.html")) {
-    const livro = JSON.parse(localStorage.getItem("livroSelecionado"));
-    if (livro) {
-        document.querySelector(".titulo-livro").textContent = livro.titulo;
-        document.querySelector(".descricao-livro").textContent = livro.descricao;
-    }
-    
-    document.querySelector(".btn-ler").addEventListener("click", () => {
-        window.location.href = "leitura.html";
-    });
-}
-const cartBtn = document.getElementById("cartBtn");
-const textSpan = cartBtn.querySelector(".text");
-
-let timeoutId;
-
-cartBtn.addEventListener("click", function () {
-  if (cartBtn.classList.contains("success")) return;
-  cartBtn.classList.add("success");
-
-  timeoutId = setTimeout(() => {
-    cartBtn.classList.remove("success");
-  }, 1000);
 });

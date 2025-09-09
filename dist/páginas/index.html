@@ -99,7 +99,7 @@
             <div class="row">
               <div class="col-md-4 col-sm-6 mb-4">
                 <div class=" card card-lore" >
-                  <img class="card-img-top" id="bookImg"  src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Livro" onclick="openBookPage('LivroA','50.00' ,'./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png')">
+                  <img class="card-img-top" id="bookImg"  src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Livro" onclick="openBookPage('LivroA','50.00','RYAN 1' ,'./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png')">
                   <div class="card-body">
                     <h5 class="card-title">Livro A</h5>
                     <p class="preco">R$50</p>                
@@ -111,7 +111,7 @@
               </div>
               <div class="col-md-4 col-sm-6 mb-4">
                 <div class="card card-lore">
-                  <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp" alt="Livro">
+                  <img class="card-img-top" id="bookImg" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp" alt="Livro" onclick="openBookPage('LivroB','50.00','RYAN','./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp')">
                   <div class="card-body">
                     <h5 class="card-title">Livro B</h5>
                     <p class="preco">R$50</p>  
@@ -124,7 +124,7 @@
               </div>
               <div class="col-md-4 col-sm-6 mb-4">
                 <div class="card card-lore">
-                  <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp" alt="Livro">
+                  <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp" alt="Livro" onclick="openBookPage('Ficção 1','50.00','Autor X','./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp')">
                   <div class="card-body">
                     <h5 class="card-title">Ficção 1</h5>
                     <p class="preco">R$50</p>  
@@ -137,7 +137,7 @@
               </div>
               <div class="col-md-4 col-sm-6 mb-4">
                 <div class="card card-lore">
-                  <img class="card-img-top" src="..." alt="Livro">
+                  <img class="card-img-top" id="bookImg" src="./img/coruja.1.png" alt="Livro">
                   <div class="card-body">
                     <h5 class="card-title">Ficção 2</h5>
                     <p class="preco">R$50</p>  
@@ -408,7 +408,7 @@
     
     <script src="./banco/carrinho.js"></script>
     <script>
-      function openBookPage(titulo, preco, img, author) {
+      function openBookPage(titulo, preco, author, img) {
     window.location.href = `livro.html?title=${encodeURIComponent(titulo)}&price=${encodeURIComponent(preco)}&img=${encodeURIComponent(img)}&author=${encodeURIComponent(author)}`;
 }
  
