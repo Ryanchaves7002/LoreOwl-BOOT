@@ -99,7 +99,7 @@
             <div class="row">
               <div class="col-md-4 col-sm-6 mb-4">
                 <div class=" card card-lore" >
-                  <img class="card-img-top" id="bookImg"  src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Livro" onclick="openBookPage('LivroA','50.00','RYAN 1' ,'./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png')">
+                  <img class="card-img-top" id="bookImg"  src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Livro" onclick="openBookPage('LivroA','50.00','RYAN 1' ,'./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png','loreOwl', '2024', 'livro bom de mais')">
                   <div class="card-body">
                     <h5 class="card-title">Livro A</h5>
                     <p class="preco">R$50</p>                
@@ -111,7 +111,7 @@
               </div>
               <div class="col-md-4 col-sm-6 mb-4">
                 <div class="card card-lore">
-                  <img class="card-img-top" id="bookImg" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp" alt="Livro" onclick="openBookPage('LivroB','50.00','RYAN','./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp')">
+                  <img class="card-img-top" id="bookImg" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp" alt="Livro" onclick="openBookPage('LivroB','50.00','RYAN','./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp','loreOwl2','2023','livro bom de mais')">
                   <div class="card-body">
                     <h5 class="card-title">Livro B</h5>
                     <p class="preco">R$50</p>  
@@ -408,8 +408,8 @@
     
     <script src="./banco/carrinho.js"></script>
     <script>
-      function openBookPage(titulo, preco, author, img) {
-    window.location.href = `livro.html?title=${encodeURIComponent(titulo)}&price=${encodeURIComponent(preco)}&img=${encodeURIComponent(img)}&author=${encodeURIComponent(author)}`;
+      function  openBookPage(titulo, preco, author, img, publisher, year, description){
+    window.location.href = `livro.html?title=${encodeURIComponent(titulo)}&price=${encodeURIComponent(preco)}&img=${encodeURIComponent(img)}&author=${encodeURIComponent(author)}&publisher=${encodeURIComponent(publisher)}&year=${encodeURIComponent(year)}&description=${encodeURIComponent(description)}`;
 }
  
     </script>

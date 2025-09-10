@@ -133,7 +133,7 @@
                       src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png"
                       class="figure-img img-fluid rounded"
                       alt="Imagem de um quadrado genérico com bordas arredondadas, em uma figure."
-                      style="min-width: 380px; max-height: 300px"
+                       width="245" 
                     />
                   </figure>
                   
@@ -178,7 +178,7 @@
                 </p>
               </div>
               
-            </div> <hr>
+            </div> 
            
           </div>
             
@@ -186,9 +186,10 @@
 
 <div class="row bg-white p-3 rounded shadow-sm mt">
   <div id="cardCarousel1" class="carousel slide" data-ride="carousel">
-    <h2 style="font-size: 20px;"> <b>Produtos Relacionados</b> </h2>
+    <hr style="border: 1px solid #ccc; margin: 20px 0; margin-right: -100px;">
     <div class="carousel-inner">
       <!-- Slide 1 -->
+        <h2 style="font-size: 20px;"> <b>Produtos Relacionados</b> </h2>
       <div class="carousel-item active">
         <div class="d-flex justify-content-center">
           <div class="card" style="width: 15rem; margin: 0 10px">
@@ -249,6 +250,7 @@
 
 <div class="row bg-white p-3 rounded shadow-sm mt">
   <div id="cardCarousel2" class="carousel slide" data-ride="carousel">
+    
     <h2 style="font-size: 20px;"><b>Produtos de LoreOwl</b></h2>
     <div class="carousel-inner">
       <!-- Slide 1 -->
@@ -298,7 +300,40 @@
   </div>
 </div>
 
+<div class="row bg-white p-3 rounded shadow-sm mt">
+ 
+  <section class="col-12">
+    <hr style="border: 1px solid #ccc; margin: 20px 0; margin-right: 0px;">
+
+    <h2 style="font-size: 20px;"><b>Características do produto</b></h2>
+    <div class="row mt-3">
+      <div class="col-12 col-md-6">
+        <ul class="list-unstyled">
+          <li><b>Título:</b> <span id="bookTitle2"></span></li>
+          <li><b>Autor:</b> <span id="bookAuthor2"></span></li>
+          <li><b>Editora:</b> <span id="bookPublisher"></span></li>
+          <li><b>Ano de publicação:</b> <span id="bookYear"></span></li>
+          <li><b></b></li>
+          <li><b>Edição:</b> 1ª</li>
+          <li><b>Idioma:</b> Português</li>
+        </ul>
+      </div>
+      <div class="col-12 col-md-6">
+        <ul class="list-unstyled">
+          <li><b>Número de páginas:</b> 576</li>
+          <li><b>ISBN:</b> 978-6555110742</li>
+          <li><b>Gênero:</b> Fantasia</li>
+          <li><b>Formato:</b> Capa dura</li>
+          <li><b>Peso:</b> 850 g</li>
+          <li><b>Dimensões:</b> 23 x 16 x 4 cm</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+</div> 
         </div>
+        
             
 
         <!-- Coluna das infos -->
@@ -399,7 +434,7 @@
                       <p class="mb-0">
                         <i class="fas fa-industry mr-2 text-primary"></i
                         ><strong>Editora:</strong>
-                        <span id="bookPublisher">Editora Lore</span>
+                        <span id="bookPublisher"></span>
                       </p>
                     </div>
                     <div class="product-feature">
@@ -412,7 +447,7 @@
                 </div>
                 <hr class="my-4" />
                 <h5>Descrição</h5>
-                <p id="bookDescription" class="text-justify"></p>
+                <p class="text-justify"><span id="bookDescription"></span></p>
               </div>
             </div>
           </div>
@@ -448,23 +483,31 @@
               img: params.get("img") || "",
               descricao:
                 params.get("description") || "Descrição não disponível",
+              publisher: params.get("publisher") || "Editora desconhecida",
+              year: params.get("year") || "Ano desconhecido",
             }
           : livroLS;
 
         if (!livro) {
-          window.location.href = "../index.html"; // volta pro catálogo se não houver livro
+          window.location.href = "./index.html"; // volta pro catálogo se não houver livro
           return;
         }
 
         // Atualiza a página com as informações do livro
         const tituloEl = document.getElementById("bookTitle");
         const authorEl = document.getElementById("bookAuthor");
+        const title2El = document.getElementById("bookTitle2");
+        const author2El = document.getElementById("bookAuthor2");
         const precoEl = document.getElementById("bookPrice");
         const imgEl = document.getElementById("bookImg");
         const descEl = document.getElementById("bookDescription");
+        const publisherEl = document.getElementById("bookPublisher");
+        const yearEl = document.getElementById("bookYear");
 
         if (tituloEl) tituloEl.innerText = livro.titulo;
         if (authorEl) authorEl.innerText = "Autor: " + livro.author;
+        if (title2El) title2El.innerText = livro.titulo;
+        if (author2El) author2El.innerText = livro.author;
         if (precoEl) precoEl.innerText = "R$ " + livro.preco;
         if (imgEl) {
           // força caminho correto para /páginas/img/...
@@ -473,8 +516,9 @@
             : livro.img;
           imgEl.alt = `Capa do livro ${livro.titulo}`;
         }
-        if (descEl) descEl.innerText = livro.descricao;
-
+        if (descEl) descEl.innerText = livro.description;
+        if (publisherEl) publisherEl.innerText = livro.publisher;
+        if(yearEl) yearEl.innerText = livro.year;
         // Botão ler
         const btnLer = document.getElementById("readButton");
         if (btnLer) {
