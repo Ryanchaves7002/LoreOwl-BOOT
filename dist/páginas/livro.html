@@ -1,787 +1,1235 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <!-- Meta tags Obrigatórias -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-      crossorigin="anonymous"
-    />
-    <link rel="icon" href="./img/coruja.1.png" />
-    <link rel="stylesheet" href="./css/bootstrap.css" />
-    <link rel="stylesheet" href="./css/custom.css" />
-    <title>Detalhes do produto</title>
-  </head>
-  <body class="bg-light">
-    <nav
-      class="navbar navbar-expand-lg navbar-lore navbar-dark"
-      style="background: linear-gradient(90deg, #4b0082, #7c3aed)"
-    >
-      <a class="navbar-brand" href="#">
-        <img
-          src="./img/coruja.1.png"
-          width="30"
-          height="30"
-          class="d-inline-block align-top"
-          alt="Logo LoreOwl"
-        />
-        LoreOwl
-      </a>
+<head>
+  <!-- Meta tags Obrigatórias -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-      <!-- Botão do menu para mobile -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#conteudoNavbarSuportado"
-        aria-controls="conteudoNavbarSuportado"
-        aria-expanded="false"
-        aria-label="Alternar navegação"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+  <link rel="icon" href="./img/coruja.1.png" />
+  <link rel="stylesheet" href="./css/bootstrap.css" />
+  <link rel="stylesheet" href="./css/custom.css" />
+  <title>Detalhes do produto</title>
+</head>
 
-      <!-- Links do menu -->
-      <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="./index.html"
-              >Página principal<span class="sr-only">(página atual)</span></a
-            >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./carrinho.html" style="color: white">
-              Carrinho</a
-            >
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Mais
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-lore navbar-dark"
+    style="background: linear-gradient(90deg, #4b0082, #7c3aed)">
+    <a class="navbar-brand" href="#">
+      <img src="./img/coruja.1.png" width="30" height="30" class="d-inline-block align-top" alt="Logo LoreOwl" />
+      LoreOwl
+    </a>
+
+    <!-- Botão do menu para mobile -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+      aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alternar navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links do menu -->
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="./index.html">Página principal<span class="sr-only">(página atual)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./carrinho.html" style="color: white">
+            Carrinho</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Mais
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#sobre">Sobre</a>
+          </div>
+        </li>
+      </ul>
+      <!-- Formulário de busca -->
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Livros..." aria-label="Pesquisar" />
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+          Buscar
+        </button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Coluna da imagem -->
+
+      <div class="col-md-8 mb-4">
+        <div class="row bg-white p-3 rounded shadow-sm mt-4">
+          <div class="col-12 col-md-7 mb-3">
+            <div class="row">
+              <div class="col-2">
+                <img src="./img/coruja.1.png" alt="..." width="44" height="44"
+                  class="rounded border border-dark-solid-8px" />
+                <img src="./img/coruja.1.png" alt="..." width="44" height="44"
+                  class="rounded border border-dark-solid-8px" />
+                <img src="./img/coruja.1.png" alt="..." width="44" height="44"
+                  class="rounded border border-dark-solid-8px" />
+              </div>
+
+              <div class="col-10">
+                <figure class="figure">
+                  <img src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" class="figure-img img-fluid rounded"
+                    alt="Imagem de um quadrado genérico com bordas arredondadas, em uma figure." width="245" />
+                </figure>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-5 mb-6">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <span class="small text-muted">Novo | +100 vendidos</span>
+              <div>
+                <i class="fas fa-share-alt mr-2"></i>
+                <i class="far fa-heart"></i>
+              </div>
+            </div>
+            <h2 id="bookTitle" class="h4"></h2>
+            <h3 id="bookAuthor"></h3>
+            <div class="d-flex align-items-center mb-2">
+              <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+              <span class="small text-muted ml-2" id="bookRating">(1868 avaliações)</span>
+            </div>
+            <h3 class="h5 font-weight-bold text-danger" id="bookPrice"></h3>
+            <div class="d-flex align-items-center">
+              <span class="original-price mr-2" id="bookOriginalPrice">R$ 30,00</span>
+              <span class="discount-badge" id="bookDiscount">30% OFF</span>
+            </div>
+            <div class="mb-3">
+              <p class="small text-muted mb-0" id="bookInstallments">
+                ou em 12x de R$ 2,17 sem juros
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row bg-white p-3 rounded shadow-sm mt">
+          <div id="cardCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- Slide 1 -->
+              <h2 style="font-size: 20px"><b>Produtos Relacionados</b></h2>
+              <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                  <div class="card mx-2" style="width: 15rem;">
+                    <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                      alt="Card 1" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 1.</p>
+                    </div>
+                  </div>
+                  <div class="card mx-2" style="width: 15rem;">
+                    <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                      alt="Card 1" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 1.</p>
+                    </div>
+                  </div>
+                  <div class="card mx-2" style="width: 15rem;">
+                    <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                      alt="Card 1" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 1.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <div class="card mx-2" style="width: 15rem;">
+                    <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                      alt="Card 2" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 2.</p>
+                    </div>
+                  </div>
+                  <div class="card mx-2" style="width: 15rem;">
+                    <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                      alt="Card 2" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 2.</p>
+                    </div>
+                  </div>
+                  <div class="card mx-2" style="width: 15rem;">
+                    <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                      alt="Card 2" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 2.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <div class="card mx-2" style="width: 15rem;">
+                    <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 3.</p>
+                    </div>
+                  </div>
+                  <div class="card mx-2" style="width: 15rem;">
+                    <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 3.</p>
+                    </div>
+                  </div>
+                  <div class="card mx-2" style="width: 15rem;">
+                    <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 3.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controles corretos -->
+            <a class="carousel-control-prev" href="#cardCarousel1" role="button" data-slide="prev" style="
+                  background-color: rgb(58, 0, 58);
+                  width: 40px;
+                  height: 40px;
+                  top: 180px;
+                  left: 20px;
+                ">
+              <span class="carousel-control-prev-icon"></span>
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#sobre">Sobre</a>
-            </div>
-          </li>
-        </ul>
-        <!-- Formulário de busca -->
-        <form class="form-inline my-2 my-lg-0">
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Buscar Livros..."
-            aria-label="Pesquisar"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Buscar
-          </button>
-        </form>
-      </div>
-    </nav>
-
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Coluna da imagem -->
-
-        <div class="col-md-8 mb-4">
-          <div class="row bg-white p-3 rounded shadow-sm mt-4">
-            <div class="col-12 col-md-7 mb-3">
-              <div class="row">
-                <div class="col-2">
-                  <img
-                    src="./img/coruja.1.png"
-                    alt="..."
-                    width="44"
-                    height="44"
-                    class="rounded border border-dark-solid-8px"
-                  />
-                  <img
-                    src="./img/coruja.1.png"
-                    alt="..."
-                    width="44"
-                    height="44"
-                    class="rounded border border-dark-solid-8px"
-                  />
-                  <img
-                    src="./img/coruja.1.png"
-                    alt="..."
-                    width="44"
-                    height="44"
-                    class="rounded border border-dark-solid-8px"
-                  />
-                </div>
-
-                <div class="col-10">
-                  <figure class="figure">
-                    <img
-                      src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png"
-                      class="figure-img img-fluid rounded"
-                      alt="Imagem de um quadrado genérico com bordas arredondadas, em uma figure."
-                      width="245"
-                    />
-                  </figure>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-12 col-md-5 mb-6">
-              <div
-                class="d-flex justify-content-between align-items-center mb-2"
-              >
-                <span class="small text-muted">Novo | +100 vendidos</span>
-                <div>
-                  <i class="fas fa-share-alt mr-2"></i>
-                  <i class="far fa-heart"></i>
-                </div>
-              </div>
-              <h2 id="bookTitle" class="h4"></h2>
-              <h3 id="bookAuthor"></h3>
-              <div class="d-flex align-items-center mb-2">
-                <div class="product-rating">
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star"></i>
-                  <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span class="small text-muted ml-2" id="bookRating"
-                  >(1868 avaliações)</span
-                >
-              </div>
-              <h3 class="h5 font-weight-bold text-danger" id="bookPrice"></h3>
-              <div class="d-flex align-items-center">
-                <span class="original-price mr-2" id="bookOriginalPrice"
-                  >R$ 30,00</span
-                >
-                <span class="discount-badge" id="bookDiscount">30% OFF</span>
-              </div>
-              <div class="mb-3">
-                <p class="small text-muted mb-0" id="bookInstallments">
-                  ou em 12x de R$ 2,17 sem juros
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row bg-white p-3 rounded shadow-sm mt">
-            <div id="cardCarousel1" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                <!-- Slide 1 -->
-                <h2 style="font-size: 20px"><b>Produtos Relacionados</b></h2>
-                <div class="carousel-item active">
-                  <div class="d-flex justify-content-center">
-                    <div class="card mx-2" style="width: 15rem;">
-                      <img
-                        class="card-img-top"
-                        src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
-                        alt="Card 1"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 1.</p>
-                      </div>
-                    </div>
-                    <div class="card mx-2" style="width: 15rem;">
-                      <img
-                        class="card-img-top"
-                        src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
-                        alt="Card 1"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 1.</p>
-                      </div>
-                    </div>
-                    <div class="card mx-2" style="width: 15rem;">
-                      <img
-                        class="card-img-top"
-                        src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
-                        alt="Card 1"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 1.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                  <div class="d-flex justify-content-center">
-                    <div class="card mx-2" style="width: 15rem;">
-                      <img
-                        class="card-img-top"
-                        src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
-                        alt="Card 2"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 2.</p>
-                      </div>
-                    </div>
-                    <div class="card mx-2" style="width: 15rem;">
-                      <img
-                        class="card-img-top"
-                        src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
-                        alt="Card 2"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 2.</p>
-                      </div>
-                    </div>
-                    <div class="card mx-2" style="width: 15rem;">
-                      <img
-                        class="card-img-top"
-                        src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
-                        alt="Card 2"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 2.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="d-flex justify-content-center">
-                    <div class="card mx-2" style="width: 15rem;">
-                      <img
-                        class="card-img-top"
-                        src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png"
-                        alt="Card 3"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 3.</p>
-                      </div>
-                    </div>
-                    <div class="card mx-2" style="width: 15rem;">
-                      <img
-                        class="card-img-top"
-                        src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png"
-                        alt="Card 3"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 3.</p>
-                      </div>
-                    </div>
-                    <div class="card mx-2" style="width: 15rem;">
-                      <img
-                        class="card-img-top"
-                        src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png"
-                        alt="Card 3"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 3.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Controles corretos -->
-              <a
-                class="carousel-control-prev"
-                href="#cardCarousel1"
-                role="button"
-                data-slide="prev"
-                style="
-                  background-color: rgb(58, 0, 58);
-                  width: 40px;
-                  height: 40px;
-                  top: 180px;
-                  left: 20px;
-                "
-              >
-                <span class="carousel-control-prev-icon"></span>
-              </a>
-              <a
-                class="carousel-control-next"
-                href="#cardCarousel1"
-                role="button"
-                data-slide="next"
-                style="
+            <a class="carousel-control-next" href="#cardCarousel1" role="button" data-slide="next" style="
                   background-color: rgb(58, 0, 58);
                   width: 40px;
                   height: 40px;
                   top: 180px;
                   right: 20px;
-                "
-              >
-                <span class="carousel-control-next-icon"></span>
-              </a>
-            </div>
+                ">
+              <span class="carousel-control-next-icon"></span>
+            </a>
           </div>
+        </div>
 
-          <div class="row bg-white p-3 rounded shadow-sm mt">
-            <div id="cardCarousel2" class="carousel slide" data-ride="carousel">
-              <h2 style="font-size: 20px"><b>Produtos de LoreOwl</b></h2>
-              <div class="carousel-inner">
-                <!-- Slide 1 -->
-                <div class="carousel-item active">
-                  <div class="d-flex justify-content-center">
-                    <div
-                      class="card produto-card"
-                      style="width: 15rem; margin: 0 10px"
-                    >
-                      <img
-                        class="card-img-top"
-                        src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
-                        alt="Card 1"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 1.</p>
-                      </div>
-                    </div>
-                    <div
-                      class="card produto-card"
-                      style="width: 15rem; margin: 0 10px"
-                    >
-                      <img
-                        class="card-img-top"
-                        src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
-                        alt="Card 1"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 1.</p>
-                      </div>
+        <div class="row bg-white p-3 rounded shadow-sm mt">
+          <div id="cardCarousel2" class="carousel slide" data-ride="carousel">
+            <h2 style="font-size: 20px"><b>Produtos de LoreOwl</b></h2>
+            <div class="carousel-inner">
+              <!-- Slide 1 -->
+              <div class="carousel-item active">
+                <div class="d-flex justify-content-center">
+                  <div class="card produto-card" style="width: 15rem; margin: 0 10px">
+                    <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                      alt="Card 1" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 1.</p>
                     </div>
                   </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                  <div class="d-flex justify-content-center">
-                    <div
-                      class="card produto-card"
-                      style="width: 15rem; margin: 0 10px"
-                    >
-                      <img
-                        class="card-img-top"
-                        src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
-                        alt="Card 2"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 2.</p>
-                      </div>
-                    </div>
-                    <div
-                      class="card produto-card"
-                      style="width: 15rem; margin: 0 10px"
-                    >
-                      <img
-                        class="card-img-top"
-                        src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
-                        alt="Card 2"
-                      />
-                      <div class="card-body">
-                        <p class="card-text">Texto do Card 2.</p>
-                      </div>
+                  <div class="card produto-card" style="width: 15rem; margin: 0 10px">
+                    <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                      alt="Card 1" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 1.</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Controles corretos -->
-              <a
-                class="carousel-control-prev"
-                href="#cardCarousel2"
-                role="button"
-                data-slide="prev"
-                style="
+              <!-- Slide 2 -->
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center">
+                  <div class="card produto-card" style="width: 15rem; margin: 0 10px">
+                    <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                      alt="Card 2" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 2.</p>
+                    </div>
+                  </div>
+                  <div class="card produto-card" style="width: 15rem; margin: 0 10px">
+                    <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                      alt="Card 2" />
+                    <div class="card-body">
+                      <p class="card-text">Texto do Card 2.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controles corretos -->
+            <a class="carousel-control-prev" href="#cardCarousel2" role="button" data-slide="prev" style="
                   background-color: rgb(58, 0, 58);
                   width: 40px;
                   height: 40px;
                   margin-top: 100px;
                   left: 20px;
-                "
-              >
-                <span class="carousel-control-prev-icon"></span>
-              </a>
-              <a
-                class="carousel-control-next"
-                href="#cardCarousel2"
-                role="button"
-                data-slide="next"
-                style="
+                ">
+              <span class="carousel-control-prev-icon"></span>
+            </a>
+            <a class="carousel-control-next" href="#cardCarousel2" role="button" data-slide="next" style="
                   background-color: rgb(58, 0, 58);
                   width: 40px;
                   height: 40px;
                   margin-top: 100px;
                   right: 20px;
-                "
-              >
-                <span class="carousel-control-next-icon"></span>
-              </a>
-            </div>
+                ">
+              <span class="carousel-control-next-icon"></span>
+            </a>
           </div>
+        </div>
 
-          <div class="row bg-white p-3 rounded shadow-sm mt">
-            <section class="col-12">
-              <hr
-                style="
+        <div class="row bg-white p-3 rounded shadow-sm mt">
+          <section class="col-12">
+            <hr style="
                   border: 1px solid #ccc;
                   margin: 20px 0;
                   margin-right: 0px;
-                "
-              />
+                " />
 
-              <h2 style="font-size: 20px"><b>Características do produto</b></h2>
+            <h2 style="font-size: 20px"><b>Características do produto</b></h2>
+            <div class="row mt-3">
+              <div class="col-12 col-md-6">
+                <ul class="list-unstyled">
+                  <li><b>Título:</b> <span id="bookTitle2"></span></li>
+                  <li><b>Autor:</b> <span id="bookAuthor2"></span></li>
+                  <li><b>Editora:</b> <span id="bookPublisher"></span></li>
+                  <li>
+                    <b>Ano de publicação:</b> <span id="bookYear"></span>
+                  </li>
+                  <li><b></b></li>
+                  <li><b>Edição:</b> 1ª</li>
+                  <li><b>Idioma:</b> Português</li>
+                </ul>
+              </div>
+              <div class="col-12 col-md-6">
+                <ul class="list-unstyled">
+                  <li><b>Número de páginas:</b> 576</li>
+                  <li><b>ISBN:</b> 978-6555110742</li>
+                  <li><b>Gênero:</b> Fantasia</li>
+                  <li><b>Formato:</b> Capa dura</li>
+                  <li><b>Peso:</b> 850 g</li>
+                  <li><b>Dimensões:</b> 23 x 16 x 4 cm</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+
+
+        <div class="row bg-white p-3 rounded shadow-sm mt-4">
+          <div class="container my-4">
+            <div class="row">
+
+              <!-- Coluna da Nota Geral -->
+              <div class="d-flex col-md-2 col-12 ">
+                <div class="text-center mb-4">
+                  <h2 style="font-size: 20px;"> <b>Opiniões</b></h2>
+                  <h2 style="font-size: 48px;">4.8</h2>
+                  <div style="font-size: 24px; color: #ffc107;">★★★★☆</div>
+                  <p class="text-muted">2.058 avaliações</p>
+                </div>
+              </div>
+
+              <!-- Coluna das Barras de Avaliação -->
+              <div class="col-md-4 col-12 ">
+                <div class="d-flex align-items-center mb-2">
+                  <span class="mr-2">5 ★</span>
+                  <div class="progress flex-grow-1">
+                    <div class="progress-bar bg-warning" style="width: 80%;"></div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                  <span class="mr-2">4 ★</span>
+                  <div class="progress flex-grow-1">
+                    <div class="progress-bar bg-warning" style="width: 60%;"></div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                  <span class="mr-2">3 ★</span>
+                  <div class="progress flex-grow-1">
+                    <div class="progress-bar bg-warning" style="width: 30%;"></div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                  <span class="mr-2">2 ★</span>
+                  <div class="progress flex-grow-1">
+                    <div class="progress-bar bg-warning" style="width: 10%;"></div>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                  <span class="mr-2">1 ★</span>
+                  <div class="progress flex-grow-1">
+                    <div class="progress-bar bg-warning" style="width: 5%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Coluna das Opiniões com fotos -->
+              <div class="col-md-4 col-12">
+                <h5 class="mt-4">Opiniões com fotos</h5>
+                <div class="d-flex overflow-auto" style="gap: 10px;">
+                  <div class="border rounded p-1" style="width: 120px; flex: 0 0 auto;">
+                    <img src="foto1.jpg" class="img-fluid rounded" alt="foto1">
+                    <p class="text-center mb-0">5 ★</p>
+                  </div>
+                  <div class="border rounded p-1" style="width: 120px; flex: 0 0 auto;">
+                    <img src="foto2.jpg" class="img-fluid rounded" alt="foto2">
+                    <p class="text-center mb-0">4 ★</p>
+                  </div>
+                  <div class="border rounded p-1" style="width: 120px; flex: 0 0 auto;">
+                    <img src="foto3.jpg" class="img-fluid rounded" alt="foto3">
+                    <p class="text-center mb-0">5 ★</p>
+                  </div>
+                </div>
+              </div>
+
+            </div> <!-- fecha .row -->
+          </div> <!-- fecha .container -->
+        </div> <!-- fecha bg-white -->
+      </div>
+      <!-- Coluna das infos -->
+      <div class="col-md-4 mb-4">
+        <div class="bg-white p-3 rounded shadow-sm">
+          <div class="mb-3">
+            <p class="mb-1">
+              <i class="fas fa-truck text-success mr-1"></i>
+              <span class="shipping-badge">Frete grátis</span>
+              <span class="text-success font-weight-bold">Amanhã</span>
+            </p>
+            <p class="small text-muted mb-0">
+              Comprando dentro das próximas 12h e 53min
+            </p>
+
+            <p class="mt-2 mb-0">
+              <i class="fas fa-store text-info mr-1"></i>
+              <span class="text-info">Retire grátis amanhã em uma de nossas livrarias</span>
+            </p>
+          </div>
+          <div class="buy-box mb-3">
+            <p class="mb-1">
+              Quantidade: <span class="stock-badge"> 1 unidade</span>
+            </p>
+            <p class="mb-2 small text-muted">Mais de 50 disponíveis</p>
+            <div class="d-flex">
+              <button class="btn btn-primary btn-block mr-2" id="buyButton">
+                Comprar agora
+              </button>
+              <button class="btn btn-outline-secondary add-to-cart" id="cartBtn" aria-label="Adicionar ao carrinho">
+                Adicionar
+                <span class="text"></span>
+              </button>
+            </div>
+          </div>
+          <div class="free-return small">
+            <i class="fas fa-undo-alt"></i> Devolução grátis. Você tem 30 dias
+            a partir da data de recebimento.
+          </div>
+        </div>
+
+        <div class="bg-white p-3 rounded shadow-sm mt-3">
+          <h5 class="mb-2">Informações do vendedor</h5>
+          <div class="seller-badge">
+            <p class="mb-1"><strong>LoreOwl Livraria</strong></p>
+            <p class="mb-1 small">
+              <i class="fas fa-map-marker-alt text-muted mr-1"></i> São Paulo,
+              Brasil
+            </p>
+            <p class="mb-0 small text-success">
+              <i class="fas fa-check-circle mr-1"></i> MercadoLíder Platinum
+            </p>
+          </div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="bg-white p-3 rounded shadow-sm">
+              <h5>O que você precisa saber deste produto</h5>
               <div class="row mt-3">
-                <div class="col-12 col-md-6">
-                  <ul class="list-unstyled">
-                    <li><b>Título:</b> <span id="bookTitle2"></span></li>
-                    <li><b>Autor:</b> <span id="bookAuthor2"></span></li>
-                    <li><b>Editora:</b> <span id="bookPublisher"></span></li>
-                    <li>
-                      <b>Ano de publicação:</b> <span id="bookYear"></span>
-                    </li>
-                    <li><b></b></li>
-                    <li><b>Edição:</b> 1ª</li>
-                    <li><b>Idioma:</b> Português</li>
-                  </ul>
-                </div>
-                <div class="col-12 col-md-6">
-                  <ul class="list-unstyled">
-                    <li><b>Número de páginas:</b> 576</li>
-                    <li><b>ISBN:</b> 978-6555110742</li>
-                    <li><b>Gênero:</b> Fantasia</li>
-                    <li><b>Formato:</b> Capa dura</li>
-                    <li><b>Peso:</b> 850 g</li>
-                    <li><b>Dimensões:</b> 23 x 16 x 4 cm</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-          </div>
-
-
-         <div class="row bg-white p-3 rounded shadow-sm mt-4">
-  <div class="container my-4">
-    <div class="row">
-      
-      <!-- Coluna da Nota Geral -->
-      <div class="d-flex col-md-2 col-12 ">
-        <div class="text-center mb-4">
-          <h2 style="font-size: 20px;"> <b>Opiniões</b></h2>
-          <h2 style="font-size: 48px;">4.8</h2>
-          <div style="font-size: 24px; color: #ffc107;">★★★★☆</div>
-          <p class="text-muted">2.058 avaliações</p>
-        </div>
-      </div>
-
-      <!-- Coluna das Barras de Avaliação -->
-      <div class="col-md-4 col-12 ">
-        <div class="d-flex align-items-center mb-2">
-          <span class="mr-2">5 ★</span>
-          <div class="progress flex-grow-1">
-            <div class="progress-bar bg-warning" style="width: 80%;"></div>
-          </div>
-        </div>
-        <div class="d-flex align-items-center mb-2">
-          <span class="mr-2">4 ★</span>
-          <div class="progress flex-grow-1">
-            <div class="progress-bar bg-warning" style="width: 60%;"></div>
-          </div>
-        </div>
-        <div class="d-flex align-items-center mb-2">
-          <span class="mr-2">3 ★</span>
-          <div class="progress flex-grow-1">
-            <div class="progress-bar bg-warning" style="width: 30%;"></div>
-          </div>
-        </div>
-        <div class="d-flex align-items-center mb-2">
-          <span class="mr-2">2 ★</span>
-          <div class="progress flex-grow-1">
-            <div class="progress-bar bg-warning" style="width: 10%;"></div>
-          </div>
-        </div>
-        <div class="d-flex align-items-center mb-2">
-          <span class="mr-2">1 ★</span>
-          <div class="progress flex-grow-1">
-            <div class="progress-bar bg-warning" style="width: 5%;"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Coluna das Opiniões com fotos -->
-      <div class="col-md-4 col-12">
-        <h5 class="mt-4">Opiniões com fotos</h5>
-        <div class="d-flex overflow-auto" style="gap: 10px;">
-          <div class="border rounded p-1" style="width: 120px; flex: 0 0 auto;">
-            <img src="foto1.jpg" class="img-fluid rounded" alt="foto1">
-            <p class="text-center mb-0">5 ★</p>
-          </div>
-          <div class="border rounded p-1" style="width: 120px; flex: 0 0 auto;">
-            <img src="foto2.jpg" class="img-fluid rounded" alt="foto2">
-            <p class="text-center mb-0">4 ★</p>
-          </div>
-          <div class="border rounded p-1" style="width: 120px; flex: 0 0 auto;">
-            <img src="foto3.jpg" class="img-fluid rounded" alt="foto3">
-            <p class="text-center mb-0">5 ★</p>
-          </div>
-        </div>
-      </div>
-
-    </div> <!-- fecha .row -->
-  </div> <!-- fecha .container -->
-</div> <!-- fecha bg-white -->
-        </div>
-        <!-- Coluna das infos -->
-        <div class="col-md-4 mb-4">
-          <div class="bg-white p-3 rounded shadow-sm">
-            <div class="mb-3">
-              <p class="mb-1">
-                <i class="fas fa-truck text-success mr-1"></i>
-                <span class="shipping-badge">Frete grátis</span>
-                <span class="text-success font-weight-bold">Amanhã</span>
-              </p>
-              <p class="small text-muted mb-0">
-                Comprando dentro das próximas 12h e 53min
-              </p>
-
-              <p class="mt-2 mb-0">
-                <i class="fas fa-store text-info mr-1"></i>
-                <span class="text-info"
-                  >Retire grátis amanhã em uma de nossas livrarias</span
-                >
-              </p>
-            </div>
-            <div class="buy-box mb-3">
-              <p class="mb-1">
-                Quantidade: <span class="stock-badge"> 1 unidade</span>
-              </p>
-              <p class="mb-2 small text-muted">Mais de 50 disponíveis</p>
-              <div class="d-flex">
-                <button class="btn btn-primary btn-block mr-2" id="buyButton">
-                  Comprar agora
-                </button>
-                <button
-                  class="btn btn-outline-secondary add-to-cart"
-                  id="cartBtn"
-                  aria-label="Adicionar ao carrinho"
-                >
-                  Adicionar
-                  <span class="text"></span>
-                </button>
-              </div>
-            </div>
-            <div class="free-return small">
-              <i class="fas fa-undo-alt"></i> Devolução grátis. Você tem 30 dias
-              a partir da data de recebimento.
-            </div>
-          </div>
-
-          <div class="bg-white p-3 rounded shadow-sm mt-3">
-            <h5 class="mb-2">Informações do vendedor</h5>
-            <div class="seller-badge">
-              <p class="mb-1"><strong>LoreOwl Livraria</strong></p>
-              <p class="mb-1 small">
-                <i class="fas fa-map-marker-alt text-muted mr-1"></i> São Paulo,
-                Brasil
-              </p>
-              <p class="mb-0 small text-success">
-                <i class="fas fa-check-circle mr-1"></i> MercadoLíder Platinum
-              </p>
-            </div>
-          </div>
-
-          <div class="row mt-4">
-            <div class="col-12">
-              <div class="bg-white p-3 rounded shadow-sm">
-                <h5>O que você precisa saber deste produto</h5>
-                <div class="row mt-3">
-                  <div class="col-md-6">
-                    <div class="product-feature">
-                      <p class="mb-0">
-                        <i class="fas fa-book-open mr-2 text-primary"></i
-                        ><strong>Gênero:</strong>
-                        <span id="bookGenre">Ficção</span>
-                      </p>
-                    </div>
-                    <div class="product-feature">
-                      <p class="mb-0">
-                        <i class="fas fa-language mr-2 text-primary"></i
-                        ><strong>Idioma:</strong> Português
-                      </p>
-                    </div>
+                <div class="col-md-6">
+                  <div class="product-feature">
+                    <p class="mb-0">
+                      <i class="fas fa-book-open mr-2 text-primary"></i><strong>Gênero:</strong>
+                      <span id="bookGenre">Ficção</span>
+                    </p>
                   </div>
-                  <div class="col-md-6">
-                    <div class="product-feature">
-                      <p class="mb-0">
-                        <i class="fas fa-calendar mr-2 text-primary"></i
-                        ><strong>Ano de publicação:</strong>
-                        <span id="bookYear">2022</span>
-                      </p>
-                    </div>
-                    <div class="product-feature">
-                      <p class="mb-0">
-                        <i class="fas fa-file-alt mr-2 text-primary"></i
-                        ><strong>Páginas:</strong>
-                        <span id="bookPages">350</span>
-                      </p>
-                    </div>
-                    <div class="product-feature">
-                      <p class="mb-0">
-                        <i class="fas fa-industry mr-2 text-primary"></i
-                        ><strong>Editora:</strong>
-                        <span id="bookPublisher"></span>
-                      </p>
-                    </div>
-                    <div class="product-feature">
-                      <p class="mb-0">
-                        <i class="fas fa-weight mr-2 text-primary"></i>
-                        <strong>Peso:</strong> 450g
-                      </p>
-                    </div>
+                  <div class="product-feature">
+                    <p class="mb-0">
+                      <i class="fas fa-language mr-2 text-primary"></i><strong>Idioma:</strong> Português
+                    </p>
                   </div>
                 </div>
-                <hr class="my-4" />
-                <h5>Descrição</h5>
-                <p class="text-justify"><span id="bookDescription"></span></p>
+                <div class="col-md-6">
+                  <div class="product-feature">
+                    <p class="mb-0">
+                      <i class="fas fa-calendar mr-2 text-primary"></i><strong>Ano de publicação:</strong>
+                      <span id="bookYear">2022</span>
+                    </p>
+                  </div>
+                  <div class="product-feature">
+                    <p class="mb-0">
+                      <i class="fas fa-file-alt mr-2 text-primary"></i><strong>Páginas:</strong>
+                      <span id="bookPages">350</span>
+                    </p>
+                  </div>
+                  <div class="product-feature">
+                    <p class="mb-0">
+                      <i class="fas fa-industry mr-2 text-primary"></i><strong>Editora:</strong>
+                      <span id="bookPublisher"></span>
+                    </p>
+                  </div>
+                  <div class="product-feature">
+                    <p class="mb-0">
+                      <i class="fas fa-weight mr-2 text-primary"></i>
+                      <strong>Peso:</strong> 450g
+                    </p>
+                  </div>
+                </div>
               </div>
+              <hr class="my-4" />
+              <h5>Descrição</h5>
+              <p class="text-justify"><span id="bookDescription"></span></p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="buyModal"
-        tabindex="-1"
-        role="dialog"
-        aria-labelledby="buyModalLabel"
-        aria-hidden="true"
-      ></div>
     </div>
 
-    <script src="./banco/carrinho.js"></script>
+    <!-- Modal -->
+    <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-labelledby="buyModalLabel"
+      aria-hidden="true"></div>
+  </div>
+  <p class="display-flex text-center">Anúncio #73672136823 | <a href="#">Denunciar</a></p>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // Pega parâmetros da URL
-        const params = new URLSearchParams(window.location.search);
+  <div class="container-fluid my-4">
+    <div class="row">
+      <div id="cardCarousel3" class="carousel slide" data-ride="carousel">
+        <h2 style="font-size: 20px;"><b>Quem viu também gostou</b></h2>
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
 
-        // Tenta pegar do localStorage caso URL não exista
-        const livroLS = JSON.parse(localStorage.getItem("livroSelecionado"));
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-center">
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        const livro = params.has("title")
-          ? {
-              titulo: params.get("title"),
-              author: params.get("author") || "Autor desconhecido",
-              preco: params.get("price") || "0.00",
-              img: params.get("img") || "",
-              descricao:
-                params.get("description") || "Descrição não disponível",
-              publisher: params.get("publisher") || "Editora desconhecida",
-              year: params.get("year") || "Ano desconhecido",
-            }
-          : livroLS;
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        if (!livro) {
-          window.location.href = "./index.html"; // volta pro catálogo se não houver livro
-          return;
+          <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controles corretos -->
+        <a class="carousel-control-prev" href="#cardCarousel3" role="button" data-slide="prev" style="
+                  background-color: rgb(58, 0, 58);
+                  width: 40px;
+                  height: 40px;
+                  top: 180px;
+                  left: 20px;
+                ">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#cardCarousel3" role="button" data-slide="next" style="
+                  background-color: rgb(58, 0, 58);
+                  width: 40px;
+                  height: 40px;
+                  top: 180px;
+                  right: 20px;
+                ">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid my-4">
+    <div class="row">
+      <div id="cardCarousel4" class="carousel slide" data-ride="carousel">
+        <h2 style="font-size: 20px;"><b>Os mais baratos no exterior</b></h2>
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-center">
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controles corretos -->
+        <a class="carousel-control-prev" href="#cardCarousel4" role="button" data-slide="prev" style="
+                  background-color: rgb(58, 0, 58);
+                  width: 40px;
+                  height: 40px;
+                  top: 180px;
+                  left: 20px;
+                ">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#cardCarousel4" role="button" data-slide="next" style="
+                  background-color: rgb(58, 0, 58);
+                  width: 40px;
+                  height: 40px;
+                  top: 180px;
+                  right: 20px;
+                ">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid my-4">
+    <div class="row">
+      <div id="cardCarousel5" class="carousel slide" data-ride="carousel">
+        <h2 style="font-size: 20px;"><b>Quem comprou este produto também comprou</b></h2>
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-center">
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                  alt="Card 1" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 1.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
+                  alt="Card 2" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 2.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <div class="d-flex justify-content-center">
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+              <div class="card mx-2" style="width: 15rem;">
+                <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
+                <div class="card-body">
+                  <p class="card-text">Texto do Card 3.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controles corretos -->
+        <a class="carousel-control-prev" href="#cardCarousel5" role="button" data-slide="prev" style="
+                  background-color: rgb(58, 0, 58);
+                  width: 40px;
+                  height: 40px;
+                  top: 180px;
+                  left: 20px;
+                ">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#cardCarousel5" role="button" data-slide="next" style="
+                  background-color: rgb(58, 0, 58);
+                  width: 40px;
+                  height: 40px;
+                  top: 180px;
+                  right: 20px;
+                ">
+          <span class="carousel-control-next-icon"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container d-flex flex-column align-items-center">
+
+    <!-- ================= CARROSSEL CENTRAL ================= -->
+    <div class="row bg-light p-3 rounded shadow-sm my-4 justify-content-center text-center">
+      <div id="cardCarousel2" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="d-flex justify-content-center flex-wrap">
+
+              <!-- Card 1 -->
+              <div class="d-flex m-2 rounded overflow-hidden shadow produto-ml" style="border-radius:20px;">
+                <div class="img-col">
+                  <img src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" class="img-fluid h-100" alt="Produto 1">
+                </div>
+                <div class="desc-col d-flex flex-column justify-content-center p-3 text-white">
+                  <span class="small text-uppercase text-secondary">Marca X</span>
+                  <h5 class="fw-bold mb-1">Título do Produto</h5>
+                  <p class="mb-2">Parcele em até 18x sem juros*</p>
+                  <a href="#" class="text-white fw-bold text-decoration-none">
+                    Compre já &rsaquo;
+                  </a>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="d-flex m-2 rounded overflow-hidden shadow produto-ml" style="border-radius:20px;">
+                <div class="img-col">
+                  <img src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" class="img-fluid h-100" alt="Produto 2">
+                </div>
+                <div class="desc-col d-flex flex-column justify-content-center p-3 text-white">
+                  <span class="small text-uppercase text-secondary">Marca Y</span>
+                  <h5 class="fw-bold mb-1">Outro Produto</h5>
+                  <p class="mb-2">Frete grátis e até 18x sem juros</p>
+                  <a href="#" class="text-white fw-bold text-decoration-none">
+                    Compre agora &rsaquo;
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= BLOCO DE DESTAQUES ================= -->
+    <div class="bg-white p-4 rounded shadow-sm mt-4 text-center w-100">
+      <h2 class="fw-semibold mb-4" style="font-size:20px;">
+        Destaques em livros de Ação e Romance
+      </h2>
+
+      <div class="row justify-content-center text-start">
+
+        <div class="col-6 col-md-3 mb-3">
+          <a class="destaque d-block mb-2 fw-bold" href="#" style="font-size:14px;">Livro Aurora</a>
+          <ul class="list-unstyled">
+            <li class="item-livro">Noite Sombria</li>
+            <li class="item-livro">Caçadores do Amanhã</li>
+            <li class="item-livro">Labirinto de Fogo</li>
+            <li class="item-livro">Eco da Tempestade</li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 mb-3">
+          <a class="destaque d-block mb-2 fw-bold" href="#" style="font-size:14px;">Livro Horizonte</a>
+          <ul class="list-unstyled">
+            <li class="item-livro">Segredos do Mar</li>
+            <li class="item-livro">Vento do Norte</li>
+            <li class="item-livro">Horizonte Perdido</li>
+            <li class="item-livro">Sombras do Deserto</li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 mb-3">
+          <a class="destaque d-block mb-2 fw-bold" href="#" style="font-size:14px;">Livro Estelar</a>
+          <ul class="list-unstyled">
+            <li class="item-livro">Estrelas de Aço</li>
+            <li class="item-livro">Caminho do Lobo</li>
+            <li class="item-livro">A Última Aurora</li>
+            <li class="item-livro">Chamas Eternas</li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 mb-3">
+          <a class="destaque d-block mb-2 fw-bold" href="#" style="font-size:14px;">Livro Delta</a>
+          <ul class="list-unstyled">
+            <li class="item-livro">Mar de Espelhos</li>
+            <li class="item-livro">Cidade Submersa</li>
+            <li class="item-livro">O Guardião Invisível</li>
+            <li class="item-livro">Luzes de Outono</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ======= FOOTER ======= -->
+    <footer class="bg-light pt-4 border-top mt-5">
+
+      <!-- Termos mais procurados -->
+      <div class="container text-center mb-4">
+        <h6 class="fw-bold mb-3">Termos mais procurados</h6>
+        <p class="mb-3 small text-muted">
+          <a href="#" class="text-decoration-none text-dark">livro1</a> -
+          <a href="#" class="text-decoration-none text-dark">livro2</a> -
+          <a href="#" class="text-decoration-none text-dark">livro3</a> -
+          <a href="#" class="text-decoration-none text-dark">livro4</a> -
+          <a href="#" class="text-decoration-none text-dark">livro5</a> -
+          <a href="#" class="text-decoration-none text-dark">livro6</a>
+          <!-- adicione mais termos conforme desejar -->
+        </p>
+
+        <!-- Pesquise produto por letra inicial -->
+        <h6 class="fw-bold mb-2">Pesquise produto por letra inicial</h6>
+        <div class="alphabet-links small">
+          <a href="#" class="mx-1 text-dark text-decoration-none">A</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">B</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">C</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">D</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">E</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">F</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">G</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">H</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">I</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">J</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">K</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">L</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">M</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">N</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">O</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">P</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">Q</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">R</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">S</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">T</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">U</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">V</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">W</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">X</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">Y</a>
+          <a href="#" class="mx-1 text-dark text-decoration-none">Z</a>
+        </div>
+      </div>
+
+      <!-- Faixa inferior -->
+      <div class="bg-light border-top py-3">
+        <div
+          class="container d-flex flex-column flex-md-row justify-content-between align-items-center text-center small text-muted">
+          <div class="mb-2 mb-md-0">
+            <a href="#" class="text-muted text-decoration-none mx-2">Trabalhe conosco</a>
+            <a href="#" class="text-muted text-decoration-none mx-2">Termos e condições</a>
+            <a href="#" class="text-muted text-decoration-none mx-2">Promoções</a>
+            <a href="#" class="text-muted text-decoration-none mx-2">Privacidade</a>
+            <a href="#" class="text-muted text-decoration-none mx-2">Contato</a>
+          </div>
+          <div>
+            © 2025 LoreOwl • CNPJ 00.000.000/0001-00
+          </div>
+        </div>
+      </div>
+
+    </footer>
+
+  </div>
+
+
+
+  <script src="./banco/carrinho.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Pega parâmetros da URL
+      const params = new URLSearchParams(window.location.search);
+
+      // Tenta pegar do localStorage caso URL não exista
+      const livroLS = JSON.parse(localStorage.getItem("livroSelecionado"));
+
+      const livro = params.has("title")
+        ? {
+          titulo: params.get("title"),
+          author: params.get("author") || "Autor desconhecido",
+          preco: params.get("price") || "0.00",
+          img: params.get("img") || "",
+          descricao:
+            params.get("description") || "Descrição não disponível",
+          publisher: params.get("publisher") || "Editora desconhecida",
+          year: params.get("year") || "Ano desconhecido",
         }
+        : livroLS;
 
-        // Atualiza a página com as informações do livro
-        const tituloEl = document.getElementById("bookTitle");
-        const authorEl = document.getElementById("bookAuthor");
-        const title2El = document.getElementById("bookTitle2");
-        const author2El = document.getElementById("bookAuthor2");
-        const precoEl = document.getElementById("bookPrice");
-        const imgEl = document.getElementById("bookImg");
-        const descEl = document.getElementById("bookDescription");
-        const publisherEl = document.getElementById("bookPublisher");
-        const yearEl = document.getElementById("bookYear");
+      if (!livro) {
+        window.location.href = "./index.html"; // volta pro catálogo se não houver livro
+        return;
+      }
 
-        if (tituloEl) tituloEl.innerText = livro.titulo;
-        if (authorEl) authorEl.innerText = "Autor: " + livro.author;
-        if (title2El) title2El.innerText = livro.titulo;
-        if (author2El) author2El.innerText = livro.author;
-        if (precoEl) precoEl.innerText = "R$ " + livro.preco;
-        if (imgEl) {
-          // força caminho correto para /páginas/img/...
-          imgEl.src = livro.img.startsWith("./")
-            ? livro.img.replace(/^\.\/|^\//, "")
-            : livro.img;
-          imgEl.alt = `Capa do livro ${livro.titulo}`;
-        }
-        if (descEl) descEl.innerText = livro.description;
-        if (publisherEl) publisherEl.innerText = livro.publisher;
-        if (yearEl) yearEl.innerText = livro.year;
-        // Botão ler
-        const btnLer = document.getElementById("readButton");
-        if (btnLer) {
-          btnLer.addEventListener("click", () => {
-            window.location.href = `leitura.html?title=${encodeURIComponent(
-              livro.titulo
-            )}&author=${encodeURIComponent(livro.author)}`;
-          });
-        }
+      // Atualiza a página com as informações do livro
+      const tituloEl = document.getElementById("bookTitle");
+      const authorEl = document.getElementById("bookAuthor");
+      const title2El = document.getElementById("bookTitle2");
+      const author2El = document.getElementById("bookAuthor2");
+      const precoEl = document.getElementById("bookPrice");
+      const imgEl = document.getElementById("bookImg");
+      const descEl = document.getElementById("bookDescription");
+      const publisherEl = document.getElementById("bookPublisher");
+      const yearEl = document.getElementById("bookYear");
 
-        // Botão adicionar ao carrinho
-        const cartBtn = document.getElementById("cartBtn");
-        const cartText = cartBtn?.querySelector(".text");
-        if (cartBtn) {
-          cartBtn.addEventListener("click", () => {
-            if (cartBtn.classList.contains("success")) return;
-
-            const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-            carrinho.push(livro);
-            localStorage.setItem("carrinho", JSON.stringify(carrinho));
-
-            cartBtn.classList.add("success");
-            if (cartText) {
-              cartText.innerText = "Adicionado!";
-              cartText.classList.add("success");
-            }
-
-            setTimeout(() => {
-              cartBtn.classList.remove("success");
-              if (cartText) {
-                cartText.innerText = "";
-                cartText.classList.remove("success");
-              }
-            }, 2000);
-          });
-        }
-
-        // Remove o livro selecionado ao sair da página
-        window.addEventListener("beforeunload", () => {
-          localStorage.removeItem("livroSelecionado");
+      if (tituloEl) tituloEl.innerText = livro.titulo;
+      if (authorEl) authorEl.innerText = "Autor: " + livro.author;
+      if (title2El) title2El.innerText = livro.titulo;
+      if (author2El) author2El.innerText = livro.author;
+      if (precoEl) precoEl.innerText = "R$ " + livro.preco;
+      if (imgEl) {
+        // força caminho correto para /páginas/img/...
+        imgEl.src = livro.img.startsWith("./")
+          ? livro.img.replace(/^\.\/|^\//, "")
+          : livro.img;
+        imgEl.alt = `Capa do livro ${livro.titulo}`;
+      }
+      if (descEl) descEl.innerText = livro.description;
+      if (publisherEl) publisherEl.innerText = livro.publisher;
+      if (yearEl) yearEl.innerText = livro.year;
+      // Botão ler
+      const btnLer = document.getElementById("readButton");
+      if (btnLer) {
+        btnLer.addEventListener("click", () => {
+          window.location.href = `leitura.html?title=${encodeURIComponent(
+            livro.titulo
+          )}&author=${encodeURIComponent(livro.author)}`;
         });
-      });
-    </script>
+      }
 
-    <script src="./banco/livro.js"></script>
-    <!-- JavaScript (Opcional) -->
-    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      // Botão adicionar ao carrinho
+      const cartBtn = document.getElementById("cartBtn");
+      const cartText = cartBtn?.querySelector(".text");
+      if (cartBtn) {
+        cartBtn.addEventListener("click", () => {
+          if (cartBtn.classList.contains("success")) return;
+
+          const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+          carrinho.push(livro);
+          localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+          cartBtn.classList.add("success");
+          if (cartText) {
+            cartText.innerText = "Adicionado!";
+            cartText.classList.add("success");
+          }
+
+          setTimeout(() => {
+            cartBtn.classList.remove("success");
+            if (cartText) {
+              cartText.innerText = "";
+              cartText.classList.remove("success");
+            }
+          }, 2000);
+        });
+      }
+
+      // Remove o livro selecionado ao sair da página
+      window.addEventListener("beforeunload", () => {
+        localStorage.removeItem("livroSelecionado");
+      });
+    });
+  </script>
+
+  <script src="./banco/livro.js"></script>
+  <!-- JavaScript (Opcional) -->
+  <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>
