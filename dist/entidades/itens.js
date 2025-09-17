@@ -6,4 +6,4 @@ class Itens{
         this.quantidade = quantidade;
         this.itemcompraId = itemcompraId;
     }
-}
+}                      
