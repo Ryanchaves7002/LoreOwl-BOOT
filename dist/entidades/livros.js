@@ -1,6 +1,21 @@
 // Classe Livro
 class Livro {
-  constructor(id, titulo, autor, sinopse, preco, genero, anoPublicacao, editora, idioma, isbn, estoque, imagemCapa, linkPDF, destaque) {
+  constructor(
+    id, 
+    titulo, 
+    autor, 
+    sinopse, 
+    preco, 
+    genero, 
+    anoPublicacao, 
+    editora,
+    idioma, 
+    isbn, 
+    estoque, 
+    imagemCapa, 
+    linkPDF, 
+    destaque
+  ) {
     this.id = id;
     this.titulo = titulo;
     this.autor = autor;

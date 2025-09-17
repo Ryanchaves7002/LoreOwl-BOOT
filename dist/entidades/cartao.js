@@ -1,5 +1,13 @@
 class Cartao {
-  constructor(id, numero, titular, validade, cvv, bandeira, usuarioId) {
+  constructor(
+    id, 
+    numero, 
+    titular, 
+    validade, 
+    cvv, 
+    bandeira, 
+    usuarioId
+  ) {
     this.id = id;                // chave primária
     this.numero = numero;        // número do cartão
     this.titular = titular;      // nome do dono do cartão

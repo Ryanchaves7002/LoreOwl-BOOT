@@ -1,5 +1,10 @@
 class ItemCompra {
-  constructor(id, transacaoId, livro, quantidade) {
+  constructor(
+    id, 
+    transacaoId, 
+    livro, 
+    quantidade
+  ) {
     this.id = id;                 // PK do item
     this.transacaoId = transacaoId; // FK -> Transacao.id
     this.livroId = livro.id;        // FK -> Livro.id

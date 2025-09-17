@@ -1,5 +1,11 @@
 class Transacao {
-  constructor(id, usuarioId, cartaoId, itens, valorTotal) {
+  constructor(
+    id, 
+    usuarioId, 
+    cartaoId, 
+    itens, 
+    valorTotal
+  ) {
     this.id = id;                 // PK da transação
     this.usuarioId = usuarioId;   // FK -> Usuario.id
     this.cartaoId = cartaoId;     // FK -> Cartao.id
