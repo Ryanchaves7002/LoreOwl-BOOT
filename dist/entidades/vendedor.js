@@ -1,6 +1,6 @@
 class Vendedor{
     constructor(
-        id,
+        idvendedor,
         usuarioId,
         cnpj,
         inscricaoestadual,
@@ -8,14 +8,14 @@ class Vendedor{
         descricao,
         telefone,
         email,
-        endereco,
+        enderecoid,
         valordoproduto,
         fretegratis,
         formadepagamento,
         tipoDeLoja,
         status
     ){
-        this.id = id;
+        this.idvendedor = idvendedor;
         this.usuarioId = usuarioId;
         this.cnpj = cnpj;
         this.inscricaoestadual = inscricaoestadual;
@@ -23,7 +23,7 @@ class Vendedor{
         this.descricao = descricao;
         this.telefone = telefone;
         this.email = email;
-        this.endereco = endereco;
+        this.enderecoid = enderecoid;
         this.valordoproduto = valordoproduto || 0;
         this.fretegratis = fretegratis || false;
         this.formadepagamento = formadepagamento || [];

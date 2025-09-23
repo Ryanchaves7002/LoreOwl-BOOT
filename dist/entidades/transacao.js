@@ -3,13 +3,13 @@ class Transacao {
     id, 
     usuarioId, 
     cartaoId, 
-    itens, 
+    iditens, 
     valorTotal
   ) {
     this.id = id;                 // PK da transação
     this.usuarioId = usuarioId;   // FK -> Usuario.id
     this.cartaoId = cartaoId;     // FK -> Cartao.id
-    this.itens = itens;           // lista de livros comprados [{livro, quantidade}]
+    this.iditens = iditens;           // lista de livros comprados [{livro, quantidade}]
     this.valorTotal = valorTotal; // valor da compra
     this.data = new Date();       // data/hora da transação
     this.status = "pendente";     // pendente | aprovado | recusado
@@ -31,7 +31,7 @@ class Transacao {
     console.log(`--- Transação #${this.id} ---`);
     console.log(`Usuário ID: ${this.usuarioId}`);
     console.log(`Cartão ID: ${this.cartaoId}`);
-    this.itens.forEach(item => {
+    this.iditens.forEach(item => {
       console.log(`${item.quantidade}x ${item.livro.titulo} - R$${item.livro.preco.toFixed(2)} cada`);
     });
     console.log(`Total: R$${this.valorTotal.toFixed(2)}`);

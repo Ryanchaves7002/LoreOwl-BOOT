@@ -1,6 +1,6 @@
 class Itens{
-    constructor(id, transacaoId, livro, quantidade,itemcompraId){
-        this.id = id;
+    constructor(iditens, transacaoId, livro, quantidade,itemcompraId){
+        this.iditens = iditens;
         this.transacaoId = transacaoId;
         this.livro = livro;
         this.quantidade = quantidade;

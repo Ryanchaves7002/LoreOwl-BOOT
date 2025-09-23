@@ -9,8 +9,7 @@ class Usuario {
     datacadastro,
     documentodousuario,
     tipodeusuario
-    ) {
-    this.id = id;                
+    ) {              
     this.usuarioId = usuarioId;  
     this.senha =senha;
     this.telefone = telefone;    

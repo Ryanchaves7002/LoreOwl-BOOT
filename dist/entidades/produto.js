@@ -21,7 +21,8 @@ class Produto {
         edicao,
         banner1,
         banner2,
-        destaque
+        destaque,
+        avaliacao
         ) {
         this.tituloid = tituloid;
         this.author = author;
@@ -45,4 +46,5 @@ class Produto {
         this.banner1 = banner1;
         this.banner2 = banner2;
         this.destaque = destaque;
+        this.avaliacao = avaliacao;
 } }

@@ -1,4 +1,8 @@
 /* Quickfix: força o visual LoreOwl */
+.bg-custom{
+  background: linear-gradient(90deg, #4b0082, #7c3aed,#5b21b6) !important;
+  color: #000000 !important;
+}
 .btn-secondary {
   background-color: #4b0082 !important;
   color: #fff !important;

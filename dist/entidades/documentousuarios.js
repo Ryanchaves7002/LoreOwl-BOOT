@@ -1,10 +1,10 @@
 class DocumentoUsuario{
     constructor(
-        id,
+        iddocumentousuario,
         tipodedocumento,
         numerodedocumento
     ){
-        this.id = id;
+        this.iddocumentousuario = iddocumentousuario;
         this.tipodedocumento = tipodedocumento;
         this.numerodedocumento = numerodedocumento;
     }

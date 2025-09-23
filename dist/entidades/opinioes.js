@@ -2,12 +2,12 @@ class Opinioes{
     constructor(
         usuarioId,
         avaliacao,
-        opiniao,
+        idopiniao,
         notaavaliacao
     ){
         this.usuarioId = usuarioId;
         this.avaliacao = avaliacao;
-        this.opiniao = opiniao;
+        this.idopiniao = idopiniao;
         this.notaavaliacao = notaavaliacao;
     }
 }
