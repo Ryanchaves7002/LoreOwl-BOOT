@@ -1,4 +1,9 @@
-class Usuario {
+import { Repository } from "./repositorio.js";
+export const UsuariosRepo = new Repository("usuarios");
+
+
+
+ export class Usuario {
   constructor( 
     usuarioId,
     senha,
@@ -22,3 +27,17 @@ class Usuario {
     this.status = "pendente";
   }
 }
+//exemplo de uso
+const novoUsuario = new Usuario(
+  1,
+  "12345678",
+  "88999999999",
+  "ryan@teste.com",
+  "2005-05-10",
+  "foto.jpg",
+  new Date().toISOString(),
+  "123.456.789-00",
+  "leitor"
+);
+UsuariosRepo.adicionar(novoUsuario);
+console.log(UsuariosRepo.listar());

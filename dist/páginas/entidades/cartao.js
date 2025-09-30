@@ -1,4 +1,6 @@
-class Cartao {
+import { Repository } from "./repositorio.js";
+export const CartaoRepo = new Repository("cartoes");
+export class Cartao {
   constructor(
     idcartao, 
     numero, 

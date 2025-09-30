@@ -1,5 +1,8 @@
+
+import { Repository } from "./repositorio.js";
+export const CarrinhoRepo = new Repository("carrinho");
 // Classe Carrinho
-class Carrinho {
+ export class Carrinho {
   constructor() {
     this.iditens = []; // vai guardar objetos {livro, quantidade}
   }

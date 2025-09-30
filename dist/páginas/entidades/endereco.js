@@ -1,5 +1,11 @@
-class Endereco {
+import { Repository } from "./repositorio.js";
+
+// Repositório específico de endereços
+export const EnderecosRepo = new Repository("enderecos");
+
+export class Endereco {
   constructor(
+    idendereco,
     rua, 
     numero, 
     complemento, 
@@ -7,7 +13,9 @@ class Endereco {
     estado, 
     cep, 
     pais,
-    referencia) {
+    referencia
+  ) {
+    this.idendereco = idendereco || Date.now(); // gera id se não passar
     this.rua = rua;
     this.numero = numero;
     this.complemento = complemento || "";
@@ -17,6 +25,4 @@ class Endereco {
     this.pais = pais || "Brasil";
     this.referencia = referencia || "";
   }
-
-  
 }
