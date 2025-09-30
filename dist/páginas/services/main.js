@@ -1,6 +1,6 @@
 // ../js/main.js
-import { LivrosRepo } from './entidades/livro.js';
-import { CarrinhoService } from './services/CarrinhoService.js';
+import { LivrosRepo } from '../services/entidades/livros.js';
+import { CarrinhoService } from '../services/CarrinhoService.js';
 
 // Função para renderizar cards de livro
 function renderizarLivros() {
