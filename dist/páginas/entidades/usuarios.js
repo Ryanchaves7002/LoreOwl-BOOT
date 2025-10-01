@@ -1,8 +1,6 @@
 import { Repository } from "./repositorio.js";
 export const UsuariosRepo = new Repository("usuarios");
 
-
-
  export class Usuario {
   constructor( 
     usuarioId,

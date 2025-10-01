@@ -1,6 +1,5 @@
 import { Repository } from "./repositorio.js";
 export const ComprasRepo = new Repository("compras");
-
 export class Compra {
   constructor(
     idcompra,
