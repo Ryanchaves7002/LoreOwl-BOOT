@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
   <link rel="icon" href="./img/coruja.1.png" />
@@ -33,11 +34,11 @@
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="./index.html">Página principal<span class="sr-only">(página atual)</span></a>
+          <a class="nav-link" href="./index.html">Página principal <i class=" bi bi-house-door-fill"></i><span class="sr-only">(página atual) </span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./carrinho.html" style="color: white">
-            Carrinho</a>
+            Carrinho 🛒</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
@@ -45,6 +46,8 @@
             Mais
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="./login.html"> <i class="bi-person-circle"></i> Login</a>
+            <a class="dropdown-item" href="./cadastro.html"><i class="bi-person-circle"></i> Cadastro</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#sobre">Sobre</a>
           </div>
@@ -427,7 +430,7 @@
                 Comprar agora
               </button>
               <button class="btn btn-outline-secondary add-to-cart" id="cartBtn" aria-label="Adicionar ao carrinho">
-                Adicionar
+                Adicionar <i class="bi-plus"></i>
                 <span class="text"></span>
               </button>
             </div>
