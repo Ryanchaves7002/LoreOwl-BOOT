@@ -429,10 +429,10 @@
               <button class="btn btn-primary btn-block mr-2" id="buyButton">
                 Comprar agora
               </button>
-              <button class="btn btn-outline-secondary add-to-cart" id="cartBtn" aria-label="Adicionar ao carrinho">
-                Adicionar <i class="bi-plus"></i>
-                <span class="text"></span>
+              <button id="cartBtn" class="btn btn-outline-primary add-to-cart" aria-label="Adicionar ao carrinho">
+               <i class="bi bi-cart-plus"></i> <span>Adicionar</span>
               </button>
+
             </div>
           </div>
           <div class="free-return small">
@@ -1190,30 +1190,44 @@
 
       // Botão adicionar ao carrinho
       const cartBtn = document.getElementById("cartBtn");
-      const cartText = cartBtn?.querySelector(".text");
-      if (cartBtn) {
-        cartBtn.addEventListener("click", () => {
-          if (cartBtn.classList.contains("success")) return;
+const cartText = cartBtn?.querySelector(".text");
 
-          const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-          carrinho.push(livro);
-          localStorage.setItem("carrinho", JSON.stringify(carrinho));
+if (cartBtn) {
+  cartBtn.addEventListener("click", () => {
+    if (cartBtn.classList.contains("success")) return;
 
-          cartBtn.classList.add("success");
-          if (cartText) {
-            cartText.innerText = "Adicionado!";
-            cartText.classList.add("success");
-          }
+    // Recupera o carrinho existente
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 
-          setTimeout(() => {
-            cartBtn.classList.remove("success");
-            if (cartText) {
-              cartText.innerText = "";
-              cartText.classList.remove("success");
-            }
-          }, 2000);
-        });
+    // Evita adicionar o mesmo livro duas vezes
+    const jaExiste = carrinho.some(item => item.id === livro.id);
+    if (!jaExiste) {
+      carrinho.push(livro);
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+    }
+
+    // Feedback visual
+    cartBtn.classList.add("success");
+    if (cartText) {
+      cartText.innerText = jaExiste ? "Já está no carrinho!" : "Adicionado!";
+      cartText.classList.add("success");
+    }
+
+    // Animação: muda o ícone
+    const icon = cartBtn.querySelector("i");
+    if (icon) icon.className = "bi bi-check-lg";
+
+    setTimeout(() => {
+      cartBtn.classList.remove("success");
+      if (cartText) {
+        cartText.innerText = "";
+        cartText.classList.remove("success");
       }
+      if (icon) icon.className = "bi bi-plus";
+    }, 2000);
+  });
+}
+
 
       // Remove o livro selecionado ao sair da página
       window.addEventListener("beforeunload", () => {
