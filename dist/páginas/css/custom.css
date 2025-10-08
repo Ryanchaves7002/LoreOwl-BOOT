@@ -1,8 +1,9 @@
 /* Quickfix: força o visual LoreOwl */
-.bg-custom{
-  background: linear-gradient(90deg, #4b0082, #7c3aed,#5b21b6) !important;
+.bg-custom {
+  background: linear-gradient(90deg, #4b0082, #7c3aed, #5b21b6) !important;
   color: #000000 !important;
 }
+
 .btn-secondary {
   background-color: #4b0082 !important;
   color: #fff !important;
@@ -63,6 +64,7 @@
   opacity: 1;
   transform: translateY(0);
 }
+
 #cartBtn {
   border: 2px solid #6f42c1;
   color: #6f42c1;
@@ -201,6 +203,7 @@
 
 .produto-card:hover {
   transform: translateY(-4px);
+
 }
 
 /* Deixar imagens achatadas */
@@ -251,31 +254,36 @@
   height: 100%;
 }
 
-.destaque{
+.destaque {
   text-decoration: none;
   color: black;
 }
-.destaque:hover{
+
+.destaque:hover {
   text-decoration: none;
   color: #4b0082;
   font-weight: bold;
 }
 
 .lista-livros {
-  list-style: none;   /* remove os marcadores */
-  padding-left: 0;    /* remove indentação padrão */
-  margin: 0;          /* opcional: remove margem */
+  list-style: none;
+  /* remove os marcadores */
+  padding-left: 0;
+  /* remove indentação padrão */
+  margin: 0;
+  /* opcional: remove margem */
 }
 
 .item-livro {
-  padding: 4px 0;     /* espaçamento vertical */
+  padding: 4px 0;
+  /* espaçamento vertical */
   /* você pode adicionar outras regras aqui, ex: cor, hover etc. */
 }
 
- .carousel-item .card {
-         /* Ocupa cerca de 30% da largura no desktop */
-        max-width: 18rem;
-      }
+.carousel-item .card {
+  /* Ocupa cerca de 30% da largura no desktop */
+  max-width: 18rem;
+}
 
 
 .carousel-control-prev,
@@ -286,14 +294,16 @@
   transform: translateY(-50%);
   background-color: rgb(58, 0, 58);
   border-radius: 50%;
-  }
+}
+
 /* RESPONSIVIDADE */
 
 @media (max-width: 992px) {
   .carousel-item .card {
-    flex: 1 0 45%; /* Em tablets mostra 2 por vez */
-   }
+    flex: 1 0 45%;
+    /* Em tablets mostra 2 por vez */
   }
+}
 
 @media (max-width: 576px) {
   .produto-card {
@@ -306,9 +316,9 @@
     align-items: center;
   }
 
-  .carousel-item .card{
-  flex: 1 0 80%;
-}
+  .carousel-item .card {
+    flex: 1 0 80%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -361,23 +371,27 @@
     margin-bottom: 1rem;
   }
 }
+
 .list-group-item i {
   color: #a855f7;
   margin-right: 10px;
   font-size: 1.5rem;
   transition: color 0.3s ease transform 0.2 ease;
 }
+
 .list-group-item:hover i {
 
   color: #c084fc;
   transform: scale(1.2);
 }
+
 .list-group-item.active {
   background-color: rgba(168, 85, 247, 0.15);
   color: #fff;
   border-left: 4px solid #a855f7;
   font-weight: 600;
 }
+
 .list-group-item {
   background: transparent;
   color: #e6d9ff;
@@ -387,4 +401,3 @@
   display: flex;
   align-items: center;
 }
-
