@@ -124,105 +124,9 @@
         </div>
 
         <div class="row bg-white p-3 rounded shadow-sm mt">
-          <div id="cardCarousel1" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <!-- Slide 1 -->
-              <h2 style="font-size: 20px"><b>Produtos Relacionados</b></h2>
-              <div class="carousel-item active">
-                <div class="d-flex justify-content-center">
-                  <div class="card mx-2" style="width: 15rem;">
-                    <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
-                      alt="Card 1" />
-                    <div class="card-body">
-                      <p class="card-text">Texto do Card 1.</p>
-                    </div>
-                  </div>
-                  <div class="card mx-2" style="width: 15rem;">
-                    <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
-                      alt="Card 1" />
-                    <div class="card-body">
-                      <p class="card-text">Texto do Card 1.</p>
-                    </div>
-                  </div>
-                  <div class="card mx-2" style="width: 15rem;">
-                    <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
-                      alt="Card 1" />
-                    <div class="card-body">
-                      <p class="card-text">Texto do Card 1.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 2 -->
-              <div class="carousel-item">
-                <div class="d-flex justify-content-center">
-                  <div class="card mx-2" style="width: 15rem;">
-                    <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
-                      alt="Card 2" />
-                    <div class="card-body">
-                      <p class="card-text">Texto do Card 2.</p>
-                    </div>
-                  </div>
-                  <div class="card mx-2" style="width: 15rem;">
-                    <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
-                      alt="Card 2" />
-                    <div class="card-body">
-                      <p class="card-text">Texto do Card 2.</p>
-                    </div>
-                  </div>
-                  <div class="card mx-2" style="width: 15rem;">
-                    <img class="card-img-top" src="./img/assets_task_01jxms2q6aegm8hd2xfzhm9x3r_1749822857_img_3.webp"
-                      alt="Card 2" />
-                    <div class="card-body">
-                      <p class="card-text">Texto do Card 2.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="d-flex justify-content-center">
-                  <div class="card mx-2" style="width: 15rem;">
-                    <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
-                    <div class="card-body">
-                      <p class="card-text">Texto do Card 3.</p>
-                    </div>
-                  </div>
-                  <div class="card mx-2" style="width: 15rem;">
-                    <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
-                    <div class="card-body">
-                      <p class="card-text">Texto do Card 3.</p>
-                    </div>
-                  </div>
-                  <div class="card mx-2" style="width: 15rem;">
-                    <img class="card-img-top" src="./img/bcd05ed6-c44d-4e3f-953d-ee479c993aa3.png" alt="Card 3" />
-                    <div class="card-body">
-                      <p class="card-text">Texto do Card 3.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Controles corretos -->
-            <a class="carousel-control-prev" href="#cardCarousel1" role="button" data-slide="prev" style="
-                  background-color: rgb(58, 0, 58);
-                  width: 40px;
-                  height: 40px;
-                  top: 180px;
-                  left: 20px;
-                ">
-              <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a class="carousel-control-next" href="#cardCarousel1" role="button" data-slide="next" style="
-                  background-color: rgb(58, 0, 58);
-                  width: 40px;
-                  height: 40px;
-                  top: 180px;
-                  right: 20px;
-                ">
-              <span class="carousel-control-next-icon"></span>
-            </a>
+          <div class="w-100">
+            <h2 style="font-size: 20px"><b>Livros relacionados</b></h2>
+            <div id="relacionados-container" class="d-flex overflow-auto pb-2"></div>
           </div>
         </div>
 
@@ -1143,116 +1047,201 @@
 
 
 
-  <script src="./banco/carrinho.js"></script>
+  <script type="module" src="./banco/catalogo.js"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      // Pega parâmetros da URL
-      const params = new URLSearchParams(window.location.search);
+  <script type="module">
+    import { livrosCatalogo, buscarLivros, formatarPreco, normalizarTexto } from './banco/catalogo.js';
 
-      // Tenta pegar do localStorage caso URL não exista
-      const livroLS = JSON.parse(localStorage.getItem("livroSelecionado"));
+    document.addEventListener('DOMContentLoaded', init);
 
-      const livro = params.has("title")
-        ? {
-          titulo: params.get("title"),
-          author: params.get("author") || "Autor desconhecido",
-          preco: params.get("price") || "0.00",
-          img: params.get("img") || "",
-          descricao:
-            params.get("description") || "Descrição não disponível",
-          publisher: params.get("publisher") || "Editora desconhecida",
-          year: params.get("year") || "Ano desconhecido",
-        }
-        : livroLS;
+    function init() {
+      const livro = obterLivro();
 
       if (!livro) {
-        window.location.href = "./index.html"; // volta pro catálogo se não houver livro
+        redirecionar();
         return;
       }
 
-      // Atualiza a página com as informações do livro
-      const tituloEl = document.getElementById("bookTitle");
-      const authorEl = document.getElementById("bookAuthor");
-      const title2El = document.getElementById("bookTitle2");
-      const author2El = document.getElementById("bookAuthor2");
-      const precoEl = document.getElementById("bookPrice");
-      const imgEl = document.getElementById("bookImg");
-      const descEl = document.getElementById("bookDescription");
-      const publisherEl = document.getElementById("bookPublisher");
-      const yearEl = document.getElementById("bookYear");
+      renderizarLivro(livro);
+      renderizarRelacionados(livro);
+      configurarBotaoLer(livro);
+      configurarCarrinho(livro);
+      limparAoSair();
+    }
 
-      if (tituloEl) tituloEl.innerText = livro.titulo;
-      if (authorEl) authorEl.innerText = "Autor: " + livro.author;
-      if (title2El) title2El.innerText = livro.titulo;
-      if (author2El) author2El.innerText = livro.author;
-      if (precoEl) precoEl.innerText = "R$ " + livro.preco;
+    function obterLivro() {
+      const params = new URLSearchParams(window.location.search);
+      const livroLS = JSON.parse(localStorage.getItem('livroSelecionado') || 'null');
+
+      if (params.has('title')) {
+        return {
+          id: params.get('title') || Date.now(),
+          titulo: params.get('title') || 'Livro sem título',
+          author: params.get('author') || 'Autor desconhecido',
+          preco: params.get('price') || '0.00',
+          img: params.get('img') || './img/coruja.1.png',
+          descricao: params.get('description') || 'Descrição não disponível',
+          publisher: params.get('publisher') || 'Editora desconhecida',
+          year: params.get('year') || 'Ano desconhecido',
+          genero: params.get('genero') || 'Geral'
+        };
+      }
+
+      return livroLS;
+    }
+
+    function redirecionar() {
+      window.location.href = './index.html';
+    }
+
+    function renderizarLivro(livro) {
+      setText('bookTitle', livro.titulo);
+      setText('bookAuthor', `Autor: ${livro.author}`);
+      setText('bookTitle2', livro.titulo);
+      setText('bookAuthor2', livro.author);
+      setText('bookPrice', formatarPreco(livro.preco));
+      setText('bookDescription', livro.descricao);
+      setText('bookPublisher', livro.publisher);
+      setText('bookYear', livro.year);
+      setText('bookGenre', livro.genero || 'Geral');
+
+      const imgEl = document.getElementById('bookImg');
       if (imgEl) {
-        // força caminho correto para /páginas/img/...
-        imgEl.src = livro.img.startsWith("./")
-          ? livro.img.replace(/^\.\/|^\//, "")
-          : livro.img;
+        imgEl.src = formatarImagem(livro.img);
         imgEl.alt = `Capa do livro ${livro.titulo}`;
       }
-      if (descEl) descEl.innerText = livro.description;
-      if (publisherEl) publisherEl.innerText = livro.publisher;
-      if (yearEl) yearEl.innerText = livro.year;
-      // Botão ler
-      const btnLer = document.getElementById("readButton");
-      if (btnLer) {
-        btnLer.addEventListener("click", () => {
-          window.location.href = `leitura.html?title=${encodeURIComponent(
-            livro.titulo
-          )}&author=${encodeURIComponent(livro.author)}`;
-        });
+
+      const capaPrincipal = document.querySelector('.figure img');
+      if (capaPrincipal) {
+        capaPrincipal.src = formatarImagem(livro.img);
+        capaPrincipal.alt = `Capa do livro ${livro.titulo}`;
       }
+    }
 
-      // Botão adicionar ao carrinho
-      const cartBtn = document.getElementById("cartBtn");
-      const cartText = cartBtn?.querySelector(".text");
+    function setText(id, valor) {
+      const el = document.getElementById(id);
+      if (el) el.innerText = valor;
+    }
 
-      if (cartBtn) {
-        cartBtn.addEventListener("click", () => {
-          if (cartBtn.classList.contains("success")) return;
+    function formatarImagem(src) {
+      if (!src) return './img/coruja.1.png';
+      return src.startsWith('./') ? src : `./${src.replace(/^\//, '')}`;
+    }
 
-          // Recupera o carrinho existente
-          const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    function configurarBotaoLer(livro) {
+      const btn = document.getElementById('readButton');
+      if (!btn) return;
 
-          // Evita adicionar o mesmo livro duas vezes
-          const jaExiste = carrinho.some(item => item.id === livro.id);
-          if (!jaExiste) {
-            carrinho.push(livro);
-            localStorage.setItem("carrinho", JSON.stringify(carrinho));
-          }
-
-          // Feedback visual
-          cartBtn.classList.add("success");
-          if (cartText) {
-            cartText.innerText = jaExiste ? "Já está no carrinho!" : "Adicionado!";
-            cartText.classList.add("success");
-          }
-
-          // Animação: muda o ícone
-          const icon = cartBtn.querySelector("i");
-          if (icon) icon.className = "bi bi-check-lg";
-
-          setTimeout(() => {
-            cartBtn.classList.remove("success");
-            if (cartText) {
-              cartText.innerText = "";
-              cartText.classList.remove("success");
-            }
-            if (icon) icon.className = "bi bi-plus";
-          }, 2000);
-        });
-      }
-
-
-      // Remove o livro selecionado ao sair da página
-      window.addEventListener("beforeunload", () => {
-        localStorage.removeItem("livroSelecionado");
+      btn.addEventListener('click', () => {
+        window.location.href = `leitura.html?title=${encodeURIComponent(livro.titulo)}&author=${encodeURIComponent(livro.author)}`;
       });
-    });
+    }
+
+    function configurarCarrinho(livro) {
+      const cartBtn = document.getElementById('cartBtn');
+      if (!cartBtn) return;
+
+      cartBtn.addEventListener('click', () => {
+        const carrinho = JSON.parse(localStorage.getItem('carrinho') || '[]');
+        const item = {
+          id: `livro-${livro.id || livro.titulo}`,
+          titulo: livro.titulo,
+          preco: Number(String(livro.preco).replace(',', '.')) || 0,
+          quantidade: 1,
+          img: livro.img,
+          author: livro.author,
+          genero: livro.genero,
+          publisher: livro.publisher,
+          year: livro.year,
+          description: livro.descricao
+        };
+
+        const jaExiste = carrinho.some(produto => produto.titulo === livro.titulo);
+        if (!jaExiste) {
+          carrinho.push(item);
+          localStorage.setItem('carrinho', JSON.stringify(carrinho));
+        }
+
+        const texto = cartBtn.querySelector('span');
+        if (texto) {
+          texto.textContent = jaExiste ? 'Já adicionado' : 'Adicionado';
+        }
+
+        cartBtn.classList.add('btn-success');
+        setTimeout(() => {
+          cartBtn.classList.remove('btn-success');
+          if (texto) texto.textContent = 'Adicionar';
+        }, 1200);
+      });
+    }
+
+    function renderizarRelacionados(livroAtual) {
+      const genero = livroAtual.genero || 'Geral';
+      const autor = livroAtual.author || '';
+      const relacionados = livrosCatalogo.filter((livro) => {
+        if (livro.titulo === livroAtual.titulo) return false;
+        const mesmoGenero = normalizarTexto(livro.genero) === normalizarTexto(genero);
+        const mesmoAutor = normalizarTexto(livro.autor) === normalizarTexto(autor);
+        return mesmoGenero || mesmoAutor;
+      }).slice(0, 6);
+
+      const bloco = document.getElementById('relacionados-container');
+      if (!bloco) return;
+
+      if (!relacionados.length) {
+        const fallback = buscarLivros('', 'Todos').filter(item => item.titulo !== livroAtual.titulo).slice(0, 6);
+        relacionados.push(...fallback);
+      }
+
+      bloco.innerHTML = relacionados.map((livro) => `
+        <div class="card mx-2" style="width: 15rem; min-width: 15rem;">
+          <img class="card-img-top" src="${livro.imagem}" alt="${livro.titulo}" style="height: 220px; object-fit: cover; cursor: pointer;" data-title="${livro.titulo}">
+          <div class="card-body">
+            <h6 class="card-title">${livro.titulo}</h6>
+            <p class="small text-muted mb-2">${livro.autor}</p>
+            <p class="mb-2"><strong>${formatarPreco(livro.preco)}</strong></p>
+            <button class="btn btn-sm btn-primary abrir-livro" data-title="${livro.titulo}" type="button">Ver livro</button>
+          </div>
+        </div>
+      `).join('');
+
+      bloco.querySelectorAll('.abrir-livro, .card-img-top').forEach((elemento) => {
+        elemento.addEventListener('click', () => {
+          const titulo = elemento.dataset.title;
+          const livroSelecionado = livrosCatalogo.find(item => item.titulo === titulo);
+          if (!livroSelecionado) return;
+          const item = {
+            titulo: livroSelecionado.titulo,
+            author: livroSelecionado.autor,
+            preco: String(livroSelecionado.preco),
+            img: livroSelecionado.imagem,
+            publisher: livroSelecionado.editora,
+            year: String(livroSelecionado.ano),
+            description: livroSelecionado.descricao,
+            genero: livroSelecionado.genero
+          };
+
+          localStorage.setItem('livroSelecionado', JSON.stringify(item));
+          const params = new URLSearchParams({
+            title: item.titulo,
+            price: item.preco,
+            img: item.img,
+            author: item.author,
+            publisher: item.publisher,
+            year: item.year,
+            description: item.description,
+            genero: item.genero
+          });
+          window.location.href = `./livro.html?${params.toString()}`;
+        });
+      });
+    }
+
+    function limparAoSair() {
+      window.addEventListener('beforeunload', () => {
+        localStorage.removeItem('livroSelecionado');
+      });
+    }
   </script>
 
   <script src="./banco/livro.js"></script>

@@ -1,35 +1,41 @@
-// ../js/main.js
-import { LivrosRepo } from '../services/entidades/livros.js';
-import { CarrinhoService } from '../services/CarrinhoService.js';
+import { CarrinhoService } from './CarrinhoService.js';
 
-// Função para renderizar cards de livro
-function renderizarLivros() {
-  const container = document.getElementById('livros-container');
-  container.innerHTML = '';
+function extrairPreco(valor) {
+  if (!valor) return 0;
+  const numero = Number(String(valor).replace(/[R$\s.]/g, '').replace(',', '.'));
+  return Number.isFinite(numero) ? numero : 0;
+}
 
-  const livros = LivrosRepo.listar(); // array de objetos Livro
-  livros.forEach(l => {
-    const card = document.createElement('div');
-    card.className = 'card col-3 m-2 p-0';
-    card.innerHTML = `
-      <img src="${l.imagemCapa}" class="card-img-top" alt="${l.titulo}">
-      <div class="card-body">
-        <h5 class="card-title">${l.titulo}</h5>
-        <p>R$${Number(l.preco).toFixed(2)}</p>
-        <button class="btn-add btn btn-primary">Adicionar ao carrinho</button>
-      </div>
-    `;
-    // evento do botão
-    card.querySelector('.btn-add').addEventListener('click', () => {
-      CarrinhoService.adicionarAoCarrinho(l.id, 1);
-      alert(`${l.titulo} adicionado ao carrinho!`);
-    });
+function configurarBotaoCarrinho(botao) {
+  if (!botao) return;
 
-    container.appendChild(card);
+  botao.addEventListener('click', () => {
+    const card = botao.closest('.card, .card-lore') || botao.closest('.col-md-4');
+    const tituloElement = card?.querySelector('.card-title');
+    const precoElement = card?.querySelector('.preco');
+    const imagemElement = card?.querySelector('.card-img-top');
+
+    const item = {
+      id: String(tituloElement?.textContent || 'livro-' + Date.now()),
+      titulo: tituloElement?.textContent?.trim() || 'Livro',
+      preco: extrairPreco(precoElement?.textContent),
+      img: imagemElement?.getAttribute('src') || '',
+      quantidade: 1
+    };
+
+    CarrinhoService.adicionarAoCarrinho(item, 1);
+
+    const textoOriginal = botao.textContent;
+    botao.textContent = 'Adicionado!';
+    botao.disabled = true;
+
+    setTimeout(() => {
+      botao.textContent = textoOriginal;
+      botao.disabled = false;
+    }, 1500);
   });
 }
 
-// Inicializa a página
 document.addEventListener('DOMContentLoaded', () => {
-  renderizarLivros();
+  document.querySelectorAll('.add-to-cart').forEach(configurarBotaoCarrinho);
 });

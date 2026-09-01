@@ -15,55 +15,43 @@
 
   <!-- Custom styles for this template -->
   <link href="./css/form-validation.css" rel="stylesheet" />
-  <link rel="stylesheet" href="dist/css/main.css">
 </head>
 
 <body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark"
-    style="background: linear-gradient(90deg, #4b0082, #7c3aed);">
-    <a class="navbar-brand" href="#">
-      <img src="./img/coruja.1.png" width="30" height="30" class="d-inline-block align-top" alt="" />
-      LoreOwl
-    </a>
+  <nav class="navbar navbar-expand-lg navbar-lore navbar-dark">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand" href="./index.html">
+        <img src="./img/coruja.1.png" width="36" height="36" class="d-inline-block align-top rounded-circle" alt="" />
+        <span class="ml-2">LoreOwl</span>
+      </a>
 
-    <!-- Botão do menu para mobile -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
-      aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alternar navegação">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!-- Links do menu -->
-    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="./index.html">Página principal <i class=" bi bi-house-door-fill"></i><span
-              class="sr-only">(página atual)</span></a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Mais
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="./login.html"> <i class="bi-person-circle"></i> Login</a>
-            <a class="dropdown-item" href="./cadastro.html"><i class="bi-person-circle"></i> Cadastro</a>
-          </div>
-          <div class="nav-item button"></div>
-        </li>
-      </ul>
-      <!-- Formulário de busca -->
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Buscar Livros..." aria-label="Pesquisar" />
-        <button class="btn btn-secondary " type="submit">
-          Buscar
-        </button>
-
-      </form>
+      <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./index.html">Página principal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./carrinho.html">Carrinho 🛒</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">Mais</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="./login.html">Login</a>
+              <a class="dropdown-item" href="./cadastro.html">Cadastro</a>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
-  <br>
-  <div class="container">
+
+  <div class="cart-shell">
     <div class="row">
       <div class="col-md-4 order-md-2 mb-4">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -246,80 +234,105 @@
   </div>
   <script type="module" src="./services/CarrinhoService.js"></script>
   <script>
-    // Seleciona todos os botões "Adicionar ao carrinho"
-    // Seleciona todos os botões de adicionar ao carrinho
-    const botoes = document.querySelectorAll('.add-to-cart');
-    const lista = document.getElementById("lista-carrinho");
+    document.addEventListener('DOMContentLoaded', () => {
+      const lista = document.getElementById('lista-carrinho');
+      const totalCarrinho = document.getElementById('total-carrinho');
+      const badgeCarrinho = document.querySelector('.badge-secondary.badge-pill');
 
-    // Função para salvar carrinho no localStorage
-    function salvarCarrinho(carrinho) {
-      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-    }
+      function getCarrinho() {
+        try {
+          return JSON.parse(localStorage.getItem('carrinho') || '[]');
+        } catch {
+          localStorage.setItem('carrinho', JSON.stringify([]));
+          return [];
+        }
+      }
 
-    // Função para mostrar toast estilizado
-    function mostrarToast(mensagem) {
-      const toast = document.createElement('div');
-      toast.className = 'toast-custom';
-      toast.innerText = mensagem;
-      document.body.appendChild(toast);
+      function setCarrinho(carrinho) {
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      }
 
-      setTimeout(() => toast.classList.add('show'), 100);
-      setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => document.body.removeChild(toast), 500);
-      }, 2500);
-    }
+      function formatarMoeda(valor) {
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(valor || 0));
+      }
 
-    // Função para adicionar item ao carrinho
-    function adicionarAoCarrinho(titulo, preco) {
-      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-      carrinho.push({ titulo, preco });
-      salvarCarrinho(carrinho);
-      mostrarCarrinho();
-      mostrarToast(`${titulo} adicionado ao carrinho!`);
-    }
-
-    // Função para remover item do carrinho
-    function removerDoCarrinho(index) {
-      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-      const removido = carrinho.splice(index, 1);
-      salvarCarrinho(carrinho);
-      mostrarCarrinho();
-      mostrarToast(`${removido[0].titulo} removido do carrinho!`);
-    }
-
-    // Função para renderizar carrinho na tela
-    function mostrarCarrinho() {
-      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-      lista.innerHTML = '';
-      carrinho.forEach((item, index) => {
-        const li = document.createElement("li");
-        li.classList.add("list-group-item", "d-flex", "justify-content-between", "lh-condensed");
-        li.innerHTML = `
+      function criarItemHTML(item, index) {
+        const quantidade = Number(item.quantidade || 1);
+        const precoUnitario = Number(item.preco || 0);
+        return `
+          <li class="list-group-item d-flex justify-content-between align-items-center lh-condensed">
             <div>
-                <h6 class="my-0">${item.titulo}</h6>
+              <h6 class="my-0">${item.titulo}</h6>
+              <small class="text-muted">Qtd: ${quantidade}</small>
             </div>
-            <span class="text-muted">${item.preco}</span>
-            <button class="btn btn-sm btn-danger ml-2" onclick="removerDoCarrinho(${index})">Remover</button>
+            <div class="text-right">
+              <span class="text-muted d-block">${formatarMoeda(precoUnitario * quantidade)}</span>
+              <button class="btn btn-sm btn-danger mt-2 remover-btn" data-index="${index}">
+                Remover
+              </button>
+            </div>
+          </li>
         `;
-        lista.appendChild(li);
-      });
-    }
+      }
 
-    // Inicializa carrinho ao carregar a página
-    mostrarCarrinho();
+      function renderizarCarrinho() {
+        const carrinho = getCarrinho();
+        const total = carrinho.reduce((soma, item) => soma + (Number(item.preco || 0) * Number(item.quantidade || 1)), 0);
 
-    // Adiciona eventos aos botões de "Adicionar ao carrinho"
-    botoes.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.card-body'); // garante que pegue o card correto
-        const titulo = item.querySelector(".card-title").innerText;
-        const preco = item.querySelector(".preco").innerText;
-        adicionarAoCarrinho(titulo, preco);
+        if (lista) {
+          lista.innerHTML = carrinho.length
+            ? carrinho.map(criarItemHTML).join('')
+            : '<li class="list-group-item">Seu carrinho está vazio.</li>';
+        }
+
+        if (totalCarrinho) {
+          totalCarrinho.textContent = formatarMoeda(total);
+        }
+
+        if (badgeCarrinho) {
+          badgeCarrinho.textContent = carrinho.reduce((soma, item) => soma + Number(item.quantidade || 1), 0);
+        }
+
+        document.querySelectorAll('.remover-btn').forEach(botao => {
+          botao.addEventListener('click', () => {
+            const index = Number(botao.dataset.index);
+            const carrinhoAtual = getCarrinho();
+            carrinhoAtual.splice(index, 1);
+            setCarrinho(carrinhoAtual);
+            renderizarCarrinho();
+          });
+        });
+      }
+
+      document.querySelectorAll('.add-to-cart').forEach(botao => {
+        botao.addEventListener('click', () => {
+          const card = botao.closest('.card, .card-lore') || botao.closest('.col-md-4');
+          const titulo = card?.querySelector('.card-title')?.textContent?.trim() || 'Livro';
+          const precoTexto = card?.querySelector('.preco')?.textContent || '0';
+          const img = card?.querySelector('.card-img-top')?.getAttribute('src') || '';
+          const carrinho = getCarrinho();
+          const item = {
+            id: `${titulo}-${Date.now()}`,
+            titulo,
+            preco: Number(String(precoTexto).replace(/[R$\s.]/g, '').replace(',', '.')) || 0,
+            quantidade: 1,
+            img
+          };
+
+          const existe = carrinho.findIndex(produto => produto.titulo === titulo);
+          if (existe >= 0) {
+            carrinho[existe].quantidade += 1;
+          } else {
+            carrinho.push(item);
+          }
+
+          setCarrinho(carrinho);
+          renderizarCarrinho();
+        });
       });
+
+      renderizarCarrinho();
     });
-
-
   </script>
 
   <script>
@@ -336,22 +349,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
-
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script>
-    window.jQuery ||
-      document.write(
-        '<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>'
-      );
-  </script>
-  <script src="../../assets/js/vendor/popper.min.js"></script>
-  <script src="../../dist/js/bootstrap.min.js"></script>
-  <script src="../../assets/js/vendor/holder.min.js"></script>
   <script>
     (function () {
       "use strict";
