@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <!-- Meta tags Obrigatórias -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>LoreOwl</title>
+
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./css/custom.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- Ícone -->
+  <link rel="icon" href="./img/coruja.1.png">
+</head>
+
+<body style="background:linear-gradient(90deg,#4b0082,#6a11cb,#02060c); color: white;">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-lore navbar-dark">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="navbar-brand" href="#">
+        <img src="./img/coruja.1.png" width="38" height="38" class="d-inline-block align-top rounded-circle" alt="Logo LoreOwl">
+        <span class="ml-2">LoreOwl</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado"
+        aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+        <ul class="navbar-nav mr-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./carrinho.html">Carrinho 🛒</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">Mais</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#sobre">Sobre</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="./login.html">Login</a>
+              <a class="dropdown-item" href="./cadastro.html">Cadastro</a>
+            </div>
+          </li>
+        </ul>
+
+        <div class="d-flex align-items-center ml-auto mb-2 mb-lg-0">
+          <div id="guest-links" class="d-flex align-items-center">
+            <a class="btn btn-light btn-sm mr-2" href="./login.html">Entrar</a>
+            <a class="btn btn-outline-light btn-sm" href="./cadastro.html">Cadastrar</a>
+          </div>
+
+          <div id="user-profile" class="d-none align-items-center text-white ml-3">
+            <img id="profile-avatar" src="./img/coruja.1.png" alt="Foto do perfil" class="rounded-circle border border-light" width="36" height="36" style="object-fit: cover;">
+            <span id="profile-name" class="ml-2 font-weight-bold">Usuário</span>
+            <button id="logout-button" class="btn btn-link text-white ml-2 p-0" type="button">Sair</button>
+          </div>
+        </div>
+
+        <form id="search-form" class="form-inline my-2 my-lg-0 ml-lg-3 search-wrapper">
+          <input id="search-input" class="form-control" type="search" placeholder="Buscar por título, autor ou gênero..." aria-label="Pesquisar">
+          <div id="search-suggestions" class="search-suggestions d-none"></div>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid px-3 px-lg-4 pt-3">
+    <div class="hero-panel row align-items-center">
+      <div class="col-lg-8">
+        <span class="eyebrow">Biblioteca de nicho</span>
+        <h1>Encontre a próxima leitura perfeita.</h1>
+        <p>Descubra histórias de fantasia, romance, suspense, aventura e muito mais em uma experiência moderna, elegante e responsiva.</p>
+      </div>
+      <div class="col-lg-4 d-flex justify-content-lg-end justify-content-start mt-3 mt-lg-0">
+        <div class="badge badge-pill px-3 py-2" style="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);">
+          +120 títulos disponíveis
+        </div>
+      </div>
+    </div>
+
+    <div id="search-results-alert" class="alert mx-0 mt-3 d-none" role="alert"></div>
+
+    <div class="row p-0 p-lg-2">
+      <div class="sidebar-lore">
+        <div class="list-group" id="list-tab" role="tablist">
+          <a class="list-group-item active" id="list-home-list" data-toggle="list" href="#genero-todos" role="tab">
+            <i class="bi bi-house-door-fill"></i> Todos
+          </a>
+          <a class="list-group-item" id="list-ficcao-list" data-toggle="list" href="#genero-ficcao" role="tab">
+            <i class="bi bi-stars"></i> Ficção
+          </a>
+          <a class="list-group-item" id="list-romance-list" data-toggle="list" href="#genero-romance" role="tab">
+            <i class="bi bi-heart-fill"></i> Romance
+          </a>
+          <a class="list-group-item" id="list-terror-list" data-toggle="list" href="#genero-terror" role="tab">
+            <i class="bi bi-emoji-surprise-fill"></i> Terror
+          </a>
+          <a class="list-group-item" id="list-aventura-list" data-toggle="list" href="#genero-aventura" role="tab">
+            <i class="bi bi-backpack4-fill"></i> Aventura
+          </a>
+          <a class="list-group-item" id="list-drama-list" data-toggle="list" href="#genero-drama" role="tab">
+            <i class="bi bi-emoji-frown-fill"></i> Drama
+          </a>
+          <a class="list-group-item" id="list-fantasia-list" data-toggle="list" href="#genero-fantasia" role="tab">
+            <i class="bi bi-gem"></i> Fantasia
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-9 col-12">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="genero-todos" role="tabpanel">
+            <div id="catalogo-todos" class="row"></div>
+          </div>
+
+          <!-- Ficção -->
+          <div class="tab-pane fade" id="genero-ficcao" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card card-lore">
+                  <img class="card-img-top" src="./img/assets_task_01jxg11vxsetvscb452b0at8zd_1749663486_img_3.webp"
+                    alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Ficção 1</h5>
+                    <p class="preco">R$50</p>
+                    <p class="card-text">Descrição breve</p>
+                    <button class="btn btn-brand add-to-cart">Adicionar ao carrinho</button>
+                    <button class="btn btn-secondary">Ver mais</button>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card card-lore">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Ficção 2</h5>
+                    <p class="preco">R$50</p>
+                    <p class="card-text">Descrição breve</p>
+                    <button class="btn btn-brand add-to-cart">Adicionar ao carrinho</button>
+                    <button class="btn btn-secondary">Ver mais</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Romance -->
+          <div class="tab-pane fade" id="genero-romance" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card card-lore">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Romance 1</h5>
+                    <p class="preco">R$50</p>
+                    <p class="card-text">Descrição breve</p>
+                    <button class="btn btn-brand add-to-cart">Adicionar ao carrinho</button>
+                    <button class="btn btn-secondary"> Ver mais</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terror -->
+          <div class="tab-pane fade" id="genero-terror" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card card-lore">
+                  <img class="card-img-top" src="..." alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Terror 1</h5>
+                    <p class="preco">R$50</p>
+                    <p class="card-text">Descrição breve</p>
+                    <button class="btn btn-brand add-to-cart">Adicionar ao carrinho</button>
+                    <button class="btn btn-secondary"> Ver mais</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Aventura -->
+          <div class="tab-pane fade" id="genero-aventura" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card card-lore">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Aventura</h5>
+                    <p class="preco">R$50</p>
+                    <p class="card-text">Descrição breve</p>
+                    <button class="btn btn-brand add-to-cart">Adicionar ao carrinho</button>
+                    <button class="btn btn-secondary"> Ver mais</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!--Religião-->
+          <div class="tab-pane fade" id="genero-religiao" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card card-lore">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Religião</h5>
+                    <p class="preco">R$50</p>
+                    <p class="card-text">Descrição breve</p>
+                    <button class="btn btn-brand add-to-cart">Adicionar ao carrinho</button>
+                    <button class="btn btn-secondary"> Ver mais</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!--Drama-->
+          <div class="tab-pane fade" id="genero-drama" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card card-lore">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Drama</h5>
+                    <p class="preco">R$50</p>
+                    <p class="card-text">Descrição breve</p>
+                    <button class="btn btn-brand add-to-cart">Adicionar ao carrinho</button>
+                    <button class="btn btn-secondary"> Ver mais</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="genero-fantasia" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card card-lore">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Fantasia</h5>
+                    <p class="preco">R$50</p>
+                    <p class="card-text">Descrição breve</p>
+                    <button class="btn btn-brand add-to-cart">Adicionar ao carrinho</button>
+                    <button class="btn btn-secondary"> Ver mais</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="genero-manga" role="tabpanel">
+            <div class="row">
+              <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card card-lore">
+                  <img class="card-img-top" src="" alt="Livro">
+                  <div class="card-body">
+                    <h5 class="card-title">Mangá</h5>
+                    <p class="preco">R$50</p>
+                    <p class="card-text">Descrição breve</p>
+                    <button class="btn btn-brand add-to-cart">Adicionar ao carrinho</button>
+                    <button class="btn btn-secondary"> Ver mais</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <main>
+            <section id="sobre">
+              <div class="container my-5">
+                <div class="row justify-content-center">
+                  <div class="col-md-10">
+                    <div class="card shadow-lg border-0 rounded-4 text-white"
+                      style="background: linear-gradient(135deg,#6a11cb,#02060c);">
+                      <div class="row g-0">
+                        <!-- Texto -->
+                        <div class="col-md-7 p-4 d-flex flex-column justify-content-center">
+                          <div class="card-body">
+                            <h1 class="card-title mb-4">Sobre nós</h1>
+                            <p class="card-text">
+                              O <strong>LoreOwl</strong> nasceu em 2024 como um projeto estudantil criado por mim,
+                              <strong>Ryan Chaves</strong>. No início era algo simples, mas já com o objetivo de unir
+                              tecnologia, livros e conhecimento em um espaço organizado e acessível.
+                              <br><br>
+                              Em 2025, o site chega à sua <strong>versão mais avançada</strong>, construída com
+                              <strong>Bootstrap</strong>, trazendo design moderno, mais responsividade e uma navegação
+                              prática e intuitiva.
+                              <br><br>
+                              Hoje, o LoreOwl representa não só minha evolução como desenvolvedor, mas também a prova de
+                              que um projeto estudantil pode crescer e se transformar em algo muito maior.
+                            </p>
+                            <a href="#" class="btn btn-primary mt-3">Saiba mais</a>
+                          </div>
+                        </div>
+                        <!-- Imagem -->
+                        <div class="col-md-5 d-flex align-items-center">
+                          <img src="./img/coruja.1.png" class="img-fluid rounded-end" alt="Logo LoreOwl">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </main>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="./banco/catalogo.js"></script>
+    <script type="module" src="./services/main.js"></script>
+    <script type="module" src="./banco/auth.js"></script>
+
+    <script type="module">
+      import { livrosCatalogo, catalogoErro, buscarLivros, formatarPreco, montarLivroParaDetalhes } from './banco/catalogo.js';
+      import { addToCart } from './banco/db.js';
+
+      function openBookPage(titulo, preco, author, img, publisher, year, description, genero = '', id = '') {
+        const params = new URLSearchParams({
+          id: String(id),
+          title: titulo,
+          price: String(preco),
+          img: img,
+          author: author,
+          publisher: publisher || 'Editora desconhecida',
+          year: year || '2024',
+          description: description || 'Descrição disponível em breve.',
+          genero: genero || 'Geral'
+        });
+        window.location.href = `./livro.html?${params.toString()}`;
+      }
+
+      function criarCard(livro) {
+        const card = document.createElement('div');
+        card.className = 'col-md-4 col-sm-6 mb-4';
+        card.innerHTML = `
+          <div class="card card-lore h-100">
+            <img class="card-img-top" src="${livro.imagem}" alt="${livro.titulo}" style="height: 280px; object-fit: cover; cursor: pointer;">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">${livro.titulo}</h5>
+              <p class="text-light mb-1">${livro.autor}</p>
+              <span class="badge badge-light text-dark mb-2 align-self-start">${livro.genero}</span>
+              <p class="preco">${formatarPreco(livro.preco)}</p>
+              <p class="card-text flex-grow-1">${livro.descricao}</p>
+              <div class="d-flex gap-2 mt-2">
+                <button class="btn btn-brand add-to-cart" type="button">Adicionar ao carrinho</button>
+                <button class="btn btn-secondary ver-mais" type="button">Ver mais</button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        const img = card.querySelector('img');
+        img.addEventListener('click', () => {
+          const item = montarLivroParaDetalhes(livro);
+          openBookPage(item.titulo, item.preco, item.author, item.img, item.publisher, item.year, item.description, item.genero, item.id);
+        });
+
+        card.querySelector('.ver-mais').addEventListener('click', () => {
+          const item = montarLivroParaDetalhes(livro);
+          openBookPage(item.titulo, item.preco, item.author, item.img, item.publisher, item.year, item.description, item.genero, item.id);
+        });
+
+        card.querySelector('.add-to-cart').addEventListener('click', async (event) => {
+          const botao = event.currentTarget;
+          botao.disabled = true;
+          try {
+            await addToCart(livro.id);
+          } catch (error) {
+            alert(error.message);
+            return;
+          } finally {
+            botao.disabled = false;
+          }
+          const textoOriginal = botao.textContent;
+          botao.textContent = 'Adicionado!';
+          setTimeout(() => (botao.textContent = textoOriginal), 1200);
+        });
+
+        return card;
+      }
+
+      function renderizarCatalogo(consulta = '', genero = 'Todos') {
+        const todos = buscarLivros(consulta, genero);
+        const container = document.getElementById('catalogo-todos');
+        const alertBox = document.getElementById('search-results-alert');
+
+        if (!container) return;
+
+        container.innerHTML = '';
+
+        if (!todos.length) {
+          container.innerHTML = `
+            <div class="col-12">
+              <div class="alert alert-warning w-100">Nenhum livro encontrado para "${consulta || 'sua busca'}".</div>
+            </div>
+          `;
+          if (alertBox) {
+            alertBox.classList.remove('d-none');
+            alertBox.textContent = 'Nenhum resultado encontrado. Tente outro título, gênero, autor ou palavra-chave.';
+          }
+          return;
+        }
+
+        if (alertBox) {
+          alertBox.classList.add('d-none');
+        }
+
+        todos.forEach((livro) => container.appendChild(criarCard(livro)));
+      }
+
+      function renderizarSugestoes(termo = '') {
+        const box = document.getElementById('search-suggestions');
+        if (!box) return;
+
+        const texto = (termo || '').trim();
+        if (!texto) {
+          box.classList.add('d-none');
+          box.innerHTML = '';
+          return;
+        }
+
+        const sugestoes = buscarLivros(texto, 'Todos').slice(0, 5);
+        if (!sugestoes.length) {
+          box.classList.add('d-none');
+          box.innerHTML = '';
+          return;
+        }
+
+        box.classList.remove('d-none');
+        box.innerHTML = sugestoes.map((livro) => `
+          <button type="button" class="search-suggestion" data-title="${livro.titulo}">
+            <span>
+              <strong>${livro.titulo}</strong><br>
+              <small>${livro.autor} · ${livro.genero}</small>
+            </span>
+            <small>${formatarPreco(livro.preco)}</small>
+          </button>
+        `).join('');
+
+        box.querySelectorAll('.search-suggestion').forEach((botao) => {
+          botao.addEventListener('click', () => {
+            const titulo = botao.dataset.title;
+            const livro = livrosCatalogo.find((item) => item.titulo === titulo);
+            if (livro) {
+              const item = montarLivroParaDetalhes(livro);
+              openBookPage(item.titulo, item.preco, item.author, item.img, item.publisher, item.year, item.description, item.genero, item.id);
+            }
+          });
+        });
+      }
+
+      document.getElementById('search-form')?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const termo = document.getElementById('search-input')?.value || '';
+        renderizarCatalogo(termo, 'Todos');
+        document.getElementById('search-suggestions')?.classList.add('d-none');
+      });
+
+      document.getElementById('search-input')?.addEventListener('input', (event) => {
+        renderizarSugestoes(event.target.value || '');
+      });
+
+      document.addEventListener('click', (event) => {
+        const alvo = event.target;
+        const suggestions = document.getElementById('search-suggestions');
+        if (!alvo.closest('.search-suggestion') && !alvo.closest('#search-input')) {
+          suggestions?.classList.add('d-none');
+        }
+      });
+
+      document.addEventListener('DOMContentLoaded', () => {
+        if (catalogoErro) {
+          const alertBox = document.getElementById('search-results-alert');
+          if (alertBox) {
+            alertBox.classList.remove('d-none');
+            alertBox.textContent = 'Não foi possível carregar o catálogo. Tente novamente mais tarde.';
+          }
+          return;
+        }
+        renderizarCatalogo();
+      });
+
+      window.openBookPage = openBookPage;
+    </script>
+    <!-- Scripts Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+</body>
+<!--footer-->
+<footer class="bd-footer text-muted">
+  <div class="container-fluid p-3 p-md-5">
+    <ul class="bd-footer-links">
+      <li><a href="https://github.com/Ryanchaves7002/LoreOwl-BOOT">GitHub</a></li>
+      <li><a href="https://twitter.com/getbootstrap">Instagram</a></li>
+    </ul>
+    <p>Designed and built with all the love in the world by <a href="https://twitter.com/mdo" target="_blank"
+        rel="noopener">@mdo</a> and <a href="https://twitter.com/fat" target="_blank" rel="noopener">@fat</a>.
+      Maintained by the <a href="https://github.com/orgs/twbs/people">core team</a> with the help of <a
+        href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
+    <p>Currently v{{ site.current_version }}. Code licensed <a
+        href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank" rel="license noopener">MIT</a>,
+      docs <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="license noopener">CC BY 3.0</a>.
+    </p>
+  </div>
+</footer>
+
+</html>

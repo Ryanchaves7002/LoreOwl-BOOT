@@ -1,4 +1,4 @@
-import { clearSession, getCurrentUser } from './db.js';
+import { getCurrentUser, logoutUser } from './db.js';
 
 function buildDefaultAvatar(name = 'Usuário') {
   const initials = (name || 'U').trim().charAt(0).toUpperCase();
@@ -13,8 +13,13 @@ function buildDefaultAvatar(name = 'Usuário') {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 }
 
-export function renderUserHeader() {
-  const user = getCurrentUser();
+export async function renderUserHeader() {
+  let user = null;
+  try {
+    user = await getCurrentUser();
+  } catch (error) {
+    console.error(error);
+  }
   const guestLinks = document.getElementById('guest-links');
   const userProfile = document.getElementById('user-profile');
   const profileName = document.getElementById('profile-name');
@@ -46,9 +51,13 @@ export function renderUserHeader() {
   }
 
   if (logoutButton) {
-    logoutButton.onclick = () => {
-      clearSession();
-      window.location.href = './index.html';
+    logoutButton.onclick = async () => {
+      try {
+        await logoutUser();
+        window.location.href = './index.html';
+      } catch (error) {
+        alert(error.message);
+      }
     };
   }
 }

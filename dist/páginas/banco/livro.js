@@ -1,5 +1,6 @@
-function openBookPage(titulo, preco, author, img, publisher, year, description) {
+function openBookPage(titulo, preco, author, img, publisher, year, description, id = '') {
   const params = new URLSearchParams({
+    id: String(id),
     title: titulo,
     price: preco,
     author: author,
@@ -8,16 +9,6 @@ function openBookPage(titulo, preco, author, img, publisher, year, description) 
     year: year || 'Ano desconhecido',
     description: description || 'Descrição não disponível'
   });
-
-  localStorage.setItem('livroSelecionado', JSON.stringify({
-    titulo,
-    author,
-    preco,
-    img,
-    publisher: publisher || 'Editora desconhecida',
-    year: year || 'Ano desconhecido',
-    description: description || 'Descrição não disponível'
-  }));
 
   window.location.href = `./livro.html?${params.toString()}`;
 }
@@ -34,7 +25,8 @@ livros.forEach(livro => {
     const publisher = livro.querySelector('.publisher')?.textContent?.trim() || 'Editora desconhecida';
     const year = livro.querySelector('.year')?.textContent?.trim() || 'Ano desconhecido';
     const description = livro.querySelector('.description')?.textContent?.trim() || 'Descrição não disponível';
+    const id = livro.dataset.bookId || trigger.dataset.bookId || '';
 
-    openBookPage(titulo, preco, author, img, publisher, year, description);
+    openBookPage(titulo, preco, author, img, publisher, year, description, id);
   });
 });

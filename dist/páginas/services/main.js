@@ -1,33 +1,24 @@
 import { CarrinhoService } from './CarrinhoService.js';
 
-function extrairPreco(valor) {
-  if (!valor) return 0;
-  const numero = Number(String(valor).replace(/[R$\s.]/g, '').replace(',', '.'));
-  return Number.isFinite(numero) ? numero : 0;
-}
-
 function configurarBotaoCarrinho(botao) {
   if (!botao) return;
 
-  botao.addEventListener('click', () => {
+  botao.addEventListener('click', async () => {
     const card = botao.closest('.card, .card-lore') || botao.closest('.col-md-4');
-    const tituloElement = card?.querySelector('.card-title');
-    const precoElement = card?.querySelector('.preco');
-    const imagemElement = card?.querySelector('.card-img-top');
+    const bookId = card?.dataset.bookId || card?.querySelector('[data-book-id]')?.dataset.bookId;
+    if (!bookId) return alert('Não foi possível identificar este livro.');
 
-    const item = {
-      id: String(tituloElement?.textContent || 'livro-' + Date.now()),
-      titulo: tituloElement?.textContent?.trim() || 'Livro',
-      preco: extrairPreco(precoElement?.textContent),
-      img: imagemElement?.getAttribute('src') || '',
-      quantidade: 1
-    };
-
-    CarrinhoService.adicionarAoCarrinho(item, 1);
+    botao.disabled = true;
+    try {
+      await CarrinhoService.adicionarAoCarrinho({ id: bookId }, 1);
+    } catch (error) {
+      alert(error.message);
+      botao.disabled = false;
+      return;
+    }
 
     const textoOriginal = botao.textContent;
     botao.textContent = 'Adicionado!';
-    botao.disabled = true;
 
     setTimeout(() => {
       botao.textContent = textoOriginal;

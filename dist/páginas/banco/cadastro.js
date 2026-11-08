@@ -1,7 +1,5 @@
-import { initDB, registerUser, setSession } from './db.js';
-import { sha256, on } from './utils.js';
-
-initDB();
+import { registerUser } from './db.js';
+import { on } from './utils.js';
 
 const form = document.getElementById('registerForm');
 const nomeInput = document.getElementById('nome');
@@ -67,14 +65,12 @@ if (form && nomeInput && emailInput && senhaInput && confirmaSenhaInput && termo
     }
 
     try {
-      const passHash = await sha256(senha);
       const foto = fotoPreview?.dataset.avatar || null;
-      const user = registerUser({ nome, email, passHash, foto });
-      setSession(user.id);
+      const user = await registerUser({ nome, email, senha, foto });
       alert(`Conta criada com sucesso, bem-vindo(a), ${user.nome}!`);
       window.location.href = './index.html';
     } catch (error) {
-      alert(error.message || 'Não foi possível criar a conta.');
+      alert(error.message || 'Não foi possível criar a conta. Verifique a conexão e tente novamente.');
     }
   });
 }

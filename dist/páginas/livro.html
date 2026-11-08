@@ -1051,6 +1051,7 @@
 
   <script type="module">
     import { livrosCatalogo, buscarLivros, formatarPreco, normalizarTexto } from './banco/catalogo.js';
+    import { addToCart } from './banco/db.js';
 
     document.addEventListener('DOMContentLoaded', init);
 
@@ -1071,11 +1072,9 @@
 
     function obterLivro() {
       const params = new URLSearchParams(window.location.search);
-      const livroLS = JSON.parse(localStorage.getItem('livroSelecionado') || 'null');
-
       if (params.has('title')) {
         return {
-          id: params.get('title') || Date.now(),
+          id: params.get('id') || '',
           titulo: params.get('title') || 'Livro sem título',
           author: params.get('author') || 'Autor desconhecido',
           preco: params.get('price') || '0.00',
@@ -1087,7 +1086,7 @@
         };
       }
 
-      return livroLS;
+      return null;
     }
 
     function redirecionar() {
@@ -1141,30 +1140,21 @@
       const cartBtn = document.getElementById('cartBtn');
       if (!cartBtn) return;
 
-      cartBtn.addEventListener('click', () => {
-        const carrinho = JSON.parse(localStorage.getItem('carrinho') || '[]');
-        const item = {
-          id: `livro-${livro.id || livro.titulo}`,
-          titulo: livro.titulo,
-          preco: Number(String(livro.preco).replace(',', '.')) || 0,
-          quantidade: 1,
-          img: livro.img,
-          author: livro.author,
-          genero: livro.genero,
-          publisher: livro.publisher,
-          year: livro.year,
-          description: livro.descricao
-        };
-
-        const jaExiste = carrinho.some(produto => produto.titulo === livro.titulo);
-        if (!jaExiste) {
-          carrinho.push(item);
-          localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      cartBtn.addEventListener('click', async () => {
+        if (!livro.id) {
+          alert('Não foi possível identificar este livro. Volte ao catálogo e tente novamente.');
+          return;
         }
 
+        try {
+          await addToCart(livro.id);
+        } catch (error) {
+          alert(error.message);
+          return;
+        }
         const texto = cartBtn.querySelector('span');
         if (texto) {
-          texto.textContent = jaExiste ? 'Já adicionado' : 'Adicionado';
+          texto.textContent = 'Adicionado';
         }
 
         cartBtn.classList.add('btn-success');
@@ -1221,8 +1211,8 @@
             genero: livroSelecionado.genero
           };
 
-          localStorage.setItem('livroSelecionado', JSON.stringify(item));
           const params = new URLSearchParams({
+            id: String(livroSelecionado.id),
             title: item.titulo,
             price: item.preco,
             img: item.img,
@@ -1237,11 +1227,6 @@
       });
     }
 
-    function limparAoSair() {
-      window.addEventListener('beforeunload', () => {
-        localStorage.removeItem('livroSelecionado');
-      });
-    }
   </script>
 
   <script src="./banco/livro.js"></script>

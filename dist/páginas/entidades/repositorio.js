@@ -1,30 +1,41 @@
-// repository.js
 export class Repository {
-  constructor(chave) {
-    this.chave = chave;
-    this.dados = JSON.parse(localStorage.getItem(chave)) || [];
+  constructor(collectionName) {
+    this.collectionName = collectionName;
   }
 
-  salvar() {
-    localStorage.setItem(this.chave, JSON.stringify(this.dados));
+  async request(path, options = {}) {
+    const response = await fetch(`/api/data/${encodeURIComponent(this.collectionName)}${path}`, {
+      ...options,
+      headers: {
+        ...(options.body ? { 'Content-Type': 'application/json' } : {}),
+        ...options.headers
+      },
+      credentials: 'same-origin'
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(payload.error || 'Não foi possível acessar os dados.');
+    return payload;
   }
 
-  listar() {
-    return this.dados;
+  async listar() {
+    const result = await this.request('');
+    return result.items;
   }
 
-  adicionar(item) {
-    this.dados.push(item);
-    this.salvar();
+  async adicionar(item) {
+    const result = await this.request('', { method: 'POST', body: JSON.stringify({ item }) });
+    return result.item;
   }
 
-  remover(id) {
-    this.dados = this.dados.filter(el => el.id !== id);
-    this.salvar();
+  async remover(id) {
+    await this.request(`/${encodeURIComponent(id)}`, { method: 'DELETE' });
   }
 
-  atualizar(id, novoItem) {
-    this.dados = this.dados.map(el => (el.id === id ? novoItem : el));
-    this.salvar();
+  async atualizar(id, novoItem) {
+    const result = await this.request(`/${encodeURIComponent(id)}`, {
+      method: 'PUT',
+      body: JSON.stringify({ item: novoItem })
+    });
+    return result.item;
   }
 }

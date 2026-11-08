@@ -318,10 +318,12 @@
     <script type="module" src="./banco/auth.js"></script>
 
     <script type="module">
-      import { livrosCatalogo, buscarLivros, formatarPreco, montarLivroParaDetalhes } from './banco/catalogo.js';
+      import { livrosCatalogo, catalogoErro, buscarLivros, formatarPreco, montarLivroParaDetalhes } from './banco/catalogo.js';
+      import { addToCart } from './banco/db.js';
 
-      function openBookPage(titulo, preco, author, img, publisher, year, description, genero = '') {
+      function openBookPage(titulo, preco, author, img, publisher, year, description, genero = '', id = '') {
         const params = new URLSearchParams({
+          id: String(id),
           title: titulo,
           price: String(preco),
           img: img,
@@ -357,38 +359,25 @@
         const img = card.querySelector('img');
         img.addEventListener('click', () => {
           const item = montarLivroParaDetalhes(livro);
-          openBookPage(item.titulo, item.preco, item.author, item.img, item.publisher, item.year, item.description, item.genero);
+          openBookPage(item.titulo, item.preco, item.author, item.img, item.publisher, item.year, item.description, item.genero, item.id);
         });
 
         card.querySelector('.ver-mais').addEventListener('click', () => {
           const item = montarLivroParaDetalhes(livro);
-          openBookPage(item.titulo, item.preco, item.author, item.img, item.publisher, item.year, item.description, item.genero);
+          openBookPage(item.titulo, item.preco, item.author, item.img, item.publisher, item.year, item.description, item.genero, item.id);
         });
 
-        card.querySelector('.add-to-cart').addEventListener('click', () => {
-          const carrinho = JSON.parse(localStorage.getItem('carrinho') || '[]');
-          const item = {
-            id: `livro-${livro.id}`,
-            titulo: livro.titulo,
-            preco: Number(livro.preco),
-            quantidade: 1,
-            img: livro.imagem,
-            author: livro.autor,
-            genero: livro.genero,
-            publisher: livro.editora,
-            year: livro.ano,
-            description: livro.descricao
-          };
-
-          const existente = carrinho.findIndex(produto => produto.titulo === livro.titulo);
-          if (existente >= 0) {
-            carrinho[existente].quantidade += 1;
-          } else {
-            carrinho.push(item);
+        card.querySelector('.add-to-cart').addEventListener('click', async (event) => {
+          const botao = event.currentTarget;
+          botao.disabled = true;
+          try {
+            await addToCart(livro.id);
+          } catch (error) {
+            alert(error.message);
+            return;
+          } finally {
+            botao.disabled = false;
           }
-
-          localStorage.setItem('carrinho', JSON.stringify(carrinho));
-          const botao = card.querySelector('.add-to-cart');
           const textoOriginal = botao.textContent;
           botao.textContent = 'Adicionado!';
           setTimeout(() => (botao.textContent = textoOriginal), 1200);
@@ -461,7 +450,7 @@
             const livro = livrosCatalogo.find((item) => item.titulo === titulo);
             if (livro) {
               const item = montarLivroParaDetalhes(livro);
-              openBookPage(item.titulo, item.preco, item.author, item.img, item.publisher, item.year, item.description, item.genero);
+              openBookPage(item.titulo, item.preco, item.author, item.img, item.publisher, item.year, item.description, item.genero, item.id);
             }
           });
         });
@@ -487,6 +476,14 @@
       });
 
       document.addEventListener('DOMContentLoaded', () => {
+        if (catalogoErro) {
+          const alertBox = document.getElementById('search-results-alert');
+          if (alertBox) {
+            alertBox.classList.remove('d-none');
+            alertBox.textContent = 'Não foi possível carregar o catálogo. Tente novamente mais tarde.';
+          }
+          return;
+        }
         renderizarCatalogo();
       });
 

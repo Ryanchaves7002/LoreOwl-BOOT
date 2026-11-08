@@ -1,7 +1,5 @@
-import { initDB, verifyUser, setSession } from './db.js';
-import { sha256, on } from './utils.js';
-
-initDB();
+import { loginUser } from './db.js';
+import { on } from './utils.js';
 
 const loginForm = document.getElementById('loginForm');
 const email = document.getElementById('email');
@@ -18,15 +16,12 @@ if (loginForm && email && senha) {
       return alert('Preencha e-mail e senha para continuar.');
     }
 
-    const pwHash = await sha256(senhaDigitada);
-    const user = verifyUser(em, pwHash);
-
-    if (!user) {
-      return alert('E-mail ou senha inválidos.');
+    try {
+      const user = await loginUser({ email: em, senha: senhaDigitada });
+      alert(`Bem-vindo, ${user.nome}!`);
+      window.location.href = './index.html';
+    } catch (error) {
+      alert(error.message || 'Não foi possível entrar. Verifique a conexão e tente novamente.');
     }
-
-    setSession(user.id);
-    alert(`Bem-vindo, ${user.nome}!`);
-    window.location.href = './index.html';
   });
 }
